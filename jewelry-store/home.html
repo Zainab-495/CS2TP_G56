@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Seraphine Atelier</title>
+        <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+
+        <div class="page-wrapper">
+                <div class="PageContent">
+
+                        <!-- Top navigation -->
+                        <header class="TopNav" role="navigation" aria-label="Main navigation">
+                                <a href="home.html">Home</a>
+                                <a href="about.html">About</a>
+                                <a href="products.html">Products</a>
+                                <a href="contact.html">Contact</a>
+
+                                <div class="IconNav" id="auth-buttons">
+                                        <a href="login.html" aria-label="Login"><img src="assets/images/ProfileIcon.png" alt="Profile"></a>
+                                        <a href="cart.html" aria-label="Cart"><img src="assets/images/CartIcon.png" alt="Cart"><span id="cart-count" style="display:inline-block;margin-left:6px;color:#111;">0</span></a>
+                                </div>
+                        </header>
+
+                        <!-- Hero -->
+                        <main>
+                                <section class="Hero" aria-label="Hero">
+                                        <div class="HeroInner">
+                                                <div class="HeroCopy">
+                                                        <h1 class="HeroTitle">Timeless Jewellery, Crafted to Last</h1>
+                                                        <p class="HeroSubtitle">Discover handcrafted pieces made with ethically sourced materials. From everyday elegance to statement heirlooms — find something to cherish.</p>
+                                                        <div class="HeroCTA">
+                                                                <a href="products.html"><button class="BtnPrimary">Shop Collection</button></a>
+                                                                <a href="about.html"><button class="BtnGhost">Our Story</button></a>
+                                                        </div>
+                                                </div>
+                                                <div class="HeroVisual">
+                                                        <img src="assets/images/LandingPageImage.png" alt="Hero image">
+                                                </div>
+                                        </div>
+                                </section>
+
+                                <!-- Featured items (kept lightweight) -->
+                                <section class="FeaturedCrafts" aria-label="Featured crafts">
+                                        <h2 class="FeaturedCraftsTitle">Featured Crafts</h2>
+                                        <div class="FeaturedCraftsImgs">
+                                                <div>
+                                                        <img class="FeaturedItem" src="assets/images/BleedingHeartBracelet.png" alt="Bleeding Heart Bracelet">
+                                                        <h3>Bleeding Heart Bracelet</h3>
+                                                </div>
+                                                <div>
+                                                        <img class="FeaturedItem" src="assets/images/ButaRing.png" alt="Buta Ring">
+                                                        <h3>Buta Ring</h3>
+                                                </div>
+                                                <div>
+                                                        <img class="FeaturedItem" src="assets/images/ThreadbareEarrings.png" alt="Threadbare Earrings">
+                                                        <h3>Threadbare Earrings</h3>
+                                                </div>
+                                        </div>
+                                </section>
+                        </main>
+
+                </div> <!-- .PageContent -->
+
+                <!-- Footer (inline) -->
+                <footer class="footer" role="contentinfo">
+                        <div class="ContactUs">
+                                <h2 class="ContactTitle">Contact Seraphine Atelier</h2>
+                                <a href="contact.html">Contact Us</a>
+                                <div class="FooterIconsContainer">
+                                        <img class="FooterIcons" src="assets/images/FacebookIcon.png" alt="Facebook">
+                                        <img class="FooterIcons" src="assets/images/InstagramIcon.png" alt="Instagram">
+                                        <img class="FooterIcons" src="assets/images/YoutubeIcon.png" alt="YouTube">
+                                </div>
+                        </div>
+                        <div class="FooterCopyright">&copy; <span id="year">2025</span> Seraphine Atelier</div>
+                </footer>
+
+        </div> <!-- .page-wrapper -->
+
+        <script>
+                // keep copyright year current
+                try { document.getElementById('year').textContent = new Date().getFullYear(); } catch (e) {}
+        </script>
+        <script src="js/index.js" defer></script>
+</body>
+</html>

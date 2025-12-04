@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="PageContent">
+            <header class="TopNav">
+                <a href="home.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="products.html">Products</a>
+                <a href="contact.html">Contact</a>
+                <div class="IconNav" id="auth-buttons"></div>
+            </header>
+
+            <div class="AuthPage">
+                <div class="AuthCard">
+        <h1 class="AuthTitle">Register</h1>
+        <form id="register-form" class="AuthForm">
+          <label for="r-username">Username</label>
+          <input id="r-username" name="username" type="text" required>
+
+          <label for="r-email">Email</label>
+          <input id="r-email" name="email" type="email" required>
+
+          <label for="r-fullName">Full Name (Optional)</label>
+          <input id="r-fullName" name="fullName" type="text">
+
+          <label for="r-password">Password</label>
+          <input id="r-password" name="password" type="password" required>
+
+          <button type="submit" class="AuthButton">Register</button>
+
+          <p class="AuthHelp">Already have an account? <a href="login.html">Login</a></p>
+        </form>
+        <div id="error-msg" class="AuthError" aria-live="polite"></div>
+      </div>
+    </div>
+
+    <script>
+        document.getElementById('register-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            
+            fetch('api/register.php', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    username: formData.get('username'),
+                    email: formData.get('email'),
+                    password: formData.get('password'),
+                    fullName: formData.get('fullName')
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    window.location.href = 'home.html';
+                } else {
+                    document.getElementById('error-msg').textContent = data.error;
+                    document.getElementById('error-msg').classList.remove('hidden');
+                }
+            });
+        });
+        </script>
+
+        </div>
+
+        <div id="site-footer">
+            <footer class="footer">
+                <div class="FooterIconsContainer">
+                    <img src="assets/images/FacebookIcon.png" class="FooterIcons" alt="facebook">
+                    <img src="assets/images/InstagramIcon.png" class="FooterIcons" alt="instagram">
+                    <img src="assets/images/YoutubeIcon.png" class="FooterIcons" alt="youtube">
+                </div>
+                <p class="ContactTitle">© 2025 Luxury Jewelry Store</p>
+            </footer>
+        </div>
+
+    </div>
+    <script src="js/index.js" defer></script>
+</body>
+</html>

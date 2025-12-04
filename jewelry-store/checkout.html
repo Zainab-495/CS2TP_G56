@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/index.js" defer></script>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="PageContent">
+
+        <div class="TopNav">
+    <a href="home.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="products.html">Products</a>
+    <a href="contact.html">Contact</a>
+    <div class="IconNav"></div>
+</div>
+
+<h1>Checkout</h1>
+
+<div id="checkout-items"></div>
+
+<button id="placeOrderBtn">Place Order</button>
+
+<script>
+fetch("api/get-cart.php")
+    .then(r => r.json())
+    .then(cart => {
+        const c = document.getElementById("checkout-items");
+        if (!cart.items || !cart.items.length) {
+            c.innerHTML = "<p>Your cart is empty.</p>";
+            return;
+        }
+        cart.items.forEach(i => {
+            c.innerHTML += `<p>${i.name} × ${i.quantity} - £${i.price}</p>`;
+        });
+    });
+
+document.getElementById("placeOrderBtn").onclick = () => {
+        fetch("api/place-order.php").then(() => {
+                alert("Order placed!");
+                window.location = "home.html";
+        });
+};
+</script>
+
+        </div>
+
+        <div id="site-footer">
+            <footer class="footer">
+                <div class="FooterIconsContainer">
+                    <img src="assets/images/FacebookIcon.png" class="FooterIcons" alt="facebook">
+                    <img src="assets/images/InstagramIcon.png" class="FooterIcons" alt="instagram">
+                    <img src="assets/images/YoutubeIcon.png" class="FooterIcons" alt="youtube">
+                </div>
+                <p class="ContactTitle">© 2025 Luxury Jewelry Store</p>
+            </footer>
+        </div>
+        <script src="js/index.js" defer></script>
+    </div>
+</body>
+</html>
