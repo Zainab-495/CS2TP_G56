@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Our Products</title>
+        <link rel="stylesheet" href="css/index.css">
+        <script src="js/index.js" defer></script>
+</head>
+<body>
+
+<div class="page-wrapper">
+    <div class="PageContent">
+
+    <!-- Top Navigation -->
+    <div class="TopNav">
+        <a href="home.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="products.html">Products</a>
+        <a href="contact.html">Contact</a>
+
+        <div class="IconNav"></div>
+</div>
+
+<section class="TitleSection">
+        <h1 class="MainTitle">Our Jewellery Collection</h1>
+        <p class="TitleDescription">Browse our handmade, luxury jewellery pieces.</p>
+</section>
+
+<!-- Search Bar -->
+<section class="SearchSection" style="padding: 20px; text-align: center; background: #f9f9f9; margin: 20px 0;">
+    <input type="text" id="searchInput" placeholder="Search products by name or category..." style="width: 100%; max-width: 500px; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px;">
+</section>
+
+<!-- Category links -->
+<section class="CategoryLinks" aria-label="Shop by category">
+    <h2 class="SectionTitle">Shop By Category</h2>
+    <div class="CategoryGrid">
+        <a class="CategoryCard" href="rings.html">Rings</a>
+        <a class="CategoryCard" href="earrings.html">Earrings</a>
+        <a class="CategoryCard" href="bracelets.html">Bracelets</a>
+        <a class="CategoryCard" href="necklaces.html">Necklaces</a>
+        <a class="CategoryCard" href="watches.html">Watches</a>
+    </div>
+</section>
+
+<!-- Products Grid (uses CSS in css/index.css) -->
+<main class="ProductsGrid" id="productsGrid" aria-label="Product list">
+
+    <a class="ProductCard" href="product.html?product=buta-ring" data-name="Buta Ring" data-category="Ring">
+        <div class="ProductImageWrap">
+            <img class="ProductImage" src="assets/images/ButaRing.png" alt="Buta Ring">
+            <span class="ProductBadge">Ring</span>
+        </div>
+        <div class="ProductInfo">
+            <h3 class="ProductTitle">Buta Ring</h3>
+            <p class="ProductDescription">A beautifully detailed ring with traditional motifs. Handcrafted from ethically sourced materials with intricate detailing.</p>
+            <div class="ProductMeta">
+                <span class="StockText in-stock">In Stock</span>
+                <span class="ProductPrice">£129</span>
+            </div>
+            <button class="AddToCartButton" onclick="addToCartQuick(event, 'Buta Ring', 1)">Add to Cart</button>
+        </div>
+    </a>
+
+    <a class="ProductCard" href="product.html?product=threadbare-earrings" data-name="Threadbare Earrings" data-category="Earrings">
+        <div class="ProductImageWrap">
+            <img class="ProductImage" src="assets/images/ThreadbareEarrings.png" alt="Threadbare Earrings">
+            <span class="ProductBadge">Earrings</span>
+        </div>
+        <div class="ProductInfo">
+            <h3 class="ProductTitle">Threadbare Earrings</h3>
+            <p class="ProductDescription">Lightweight, elegant earrings for everyday wear. Perfect complement to any outfit with subtle elegance.</p>
+            <div class="ProductMeta">
+                <span class="StockText in-stock">In Stock</span>
+                <span class="ProductPrice">£89</span>
+            </div>
+            <button class="AddToCartButton" onclick="addToCartQuick(event, 'Threadbare Earrings', 1)">Add to Cart</button>
+        </div>
+    </a>
+
+    <a class="ProductCard" href="product.html?product=bleeding-heart-bracelet" data-name="Bleeding Heart Bracelet" data-category="Bracelet">
+        <div class="ProductImageWrap">
+            <img class="ProductImage" src="assets/images/BleedingHeartBracelet.png" alt="Bleeding Heart Bracelet">
+            <span class="ProductBadge">Bracelet</span>
+        </div>
+        <div class="ProductInfo">
+            <h3 class="ProductTitle">Bleeding Heart Bracelet</h3>
+            <p class="ProductDescription">Handcrafted bracelet with romantic detailing. A statement piece celebrating love and craftsmanship.</p>
+            <div class="ProductMeta">
+                <span class="StockText low-stock">Low Stock</span>
+                <span class="ProductPrice">£149</span>
+            </div>
+            <button class="AddToCartButton" onclick="addToCartQuick(event, 'Bleeding Heart Bracelet', 1)">Add to Cart</button>
+        </div>
+    </a>
+
+    <a class="ProductCard" href="product.html?product=handcrafted-jewellry" data-name="Signature Necklace" data-category="Necklace">
+        <div class="ProductImageWrap">
+            <img class="ProductImage" src="assets/images/HandCraftedJewellry.png" alt="Handcrafted Jewelry">
+            <span class="ProductBadge">Necklace</span>
+        </div>
+        <div class="ProductInfo">
+            <h3 class="ProductTitle">Signature Necklace</h3>
+            <p class="ProductDescription">Statement necklace made by skilled artisans. Designed to elevate any occasion with timeless elegance.</p>
+            <div class="ProductMeta">
+                <span class="StockText in-stock">In Stock</span>
+                <span class="ProductPrice">£199</span>
+            </div>
+            <button class="AddToCartButton" onclick="addToCartQuick(event, 'Signature Necklace', 1)">Add to Cart</button>
+        </div>
+    </a>
+
+    <a class="ProductCard" href="product.html?product=signature-necklace" data-name="Signature Watch" data-category="Watch">
+        <div class="ProductImageWrap">
+            <img class="ProductImage" src="assets/images/LandingPageImage.png" alt="Signature Watch">
+            <span class="ProductBadge">Watch</span>
+        </div>
+        <div class="ProductInfo">
+            <h3 class="ProductTitle">Signature Watch</h3>
+            <p class="ProductDescription">A timeless watch inspired by classical forms. Precision craftsmanship meets elegant design.</p>
+            <div class="ProductMeta">
+                <span class="StockText in-stock">In Stock</span>
+                <span class="ProductPrice">£179</span>
+            </div>
+            <button class="AddToCartButton" onclick="addToCartQuick(event, 'Signature Watch', 1)">Add to Cart</button>
+        </div>
+    </a>
+
+        </main>
+
+    </div>
+
+    <div id="site-footer">
+    <footer class="footer">
+        <div class="FooterIconsContainer">
+            <img src="assets/images/FacebookIcon.png" class="FooterIcons" alt="facebook">
+            <img src="assets/images/InstagramIcon.png" class="FooterIcons" alt="instagram">
+            <img src="assets/images/YoutubeIcon.png" class="FooterIcons" alt="youtube">
+        </div>
+        <p class="ContactTitle">© 2025 Luxury Jewelry Store</p>
+    </footer>
+</div>
+<script src="js/index.js" defer></script>
+
+<script>
+// Search functionality
+document.getElementById('searchInput').addEventListener('keyup', function(e) {
+    const query = e.target.value.toLowerCase();
+    const products = document.querySelectorAll('.ProductCard');
+    
+    products.forEach(product => {
+        const name = product.getAttribute('data-name').toLowerCase();
+        const category = product.getAttribute('data-category').toLowerCase();
+        
+        if (name.includes(query) || category.includes(query) || query === '') {
+            product.style.display = 'block';
+        } else {
+            product.style.display = 'none';
+        }
+    });
+});
+
+function addToCartQuick(e, name, qty){
+    e.preventDefault();
+    fetch('api/add-to-cart.php', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({productName: name, quantity: qty})
+    }).then(()=>{
+        // update cart count if function exists
+        if(window.loadCartCount) loadCartCount();
+        else if(typeof window.Site !== 'undefined' && window.Site.updateCartCount) window.Site.updateCartCount();
+        alert(name + ' added to cart');
+    }).catch(()=> alert('Failed to add to cart'));
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+
+<div class="page-wrapper">
+  <div class="PageContent">
+
+    <div class="TopNav">
+        <a href="home.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="products.html">Products</a>
+        <a href="contact.html">Contact</a>
+        <div class="IconNav"></div>
+    </div>
+
+    <main style="padding: 24px; max-width: 900px; margin: 0 auto;">
+      <h1>Contact Us</h1>
+
+      <form id="contactForm" style="max-width:400px;">
+          <label>Name:</label>
+          <input type="text" id="name" required><br><br>
+
+          <label>Email:</label>
+          <input type="email" id="email" required><br><br>
+
+          <label>Message:</label>
+          <textarea id="message" required></textarea><br><br>
+
+          <button type="submit">Send Message</button>
+      </form>
+
+      <p id="response"></p>
+    </main>
+
+  </div>
+
+  <div id="site-footer">
+    <footer class="footer">
+      <div class="FooterIconsContainer">
+        <img src="assets/images/FacebookIcon.png" class="FooterIcons" alt="facebook">
+        <img src="assets/images/InstagramIcon.png" class="FooterIcons" alt="instagram">
+        <img src="assets/images/YoutubeIcon.png" class="FooterIcons" alt="youtube">
+      </div>
+      <p class="ContactTitle">© 2025 Luxury Jewelry Store</p>
+    </footer>
+  </div>
+</div>
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", e => {
+    e.preventDefault();
+
+    fetch("api/contact.php", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({
+            name: name.value,
+            email: email.value,
+            message: message.value
+        })
+    })
+    .then(r => r.json())
+    .then(d => {
+        response.textContent = d.message;
+    })
+    .catch(()=>{ response.textContent = 'Failed to send message.'; });
+});
+</script>
+
+<script src="js/index.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Necklaces — Seraphine Atelier</title>
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+  <div class="page-wrapper">
+    <div class="PageContent">
+      <header class="TopNav">
+        <a href="home.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="products.html">Products</a>
+        <a href="contact.html">Contact</a>
+        <div class="IconNav" id="auth-buttons"></div>
+      </header>
+
+      <!-- Category sub-navigation -->
+      <nav class="CategoryNav" aria-label="Product categories">
+        <a href="products.html">All</a>
+        <a href="rings.html">Rings</a>
+        <a href="earrings.html">Earrings</a>
+        <a href="bracelets.html">Bracelets</a>
+        <a href="necklaces.html">Necklaces</a>
+        <a href="watches.html">Watches</a>
+      </nav>
+
+      <section class="TitleSection">
+        <h1 class="MainTitle">Necklaces</h1>
+        <p class="TitleDescription">Statement and everyday necklaces.</p>
+      </section>
+
+      <main class="ProductsGrid" aria-label="Necklaces">
+        <a class="ProductCard" href="product.html?product=handcrafted-jewellry">
+          <div class="ProductImageWrap"><img class="ProductImage" src="assets/images/HandCraftedJewellry.png" alt="Signature Necklace"></div>
+          <div class="ProductInfo"><h3 class="ProductTitle">Signature Necklace</h3><p class="ProductDescription">Statement necklace made by skilled artisans. Designed to elevate any occasion with timeless elegance and premium craftsmanship.</p><div class="ProductMeta"><span class="ProductPrice">£199</span></div></div>
+        </a>
+        <a class="ProductCard" href="product.html?product=signature-pendant">
+          <div class="ProductImageWrap"><img class="ProductImage" src="assets/images/LandingPageImage.png" alt="Signature Pendant"></div>
+          <div class="ProductInfo"><h3 class="ProductTitle">Signature Pendant</h3><p class="ProductDescription">A timeless pendant inspired by classical forms. Precision craftsmanship meets elegant design for the discerning collector.</p><div class="ProductMeta"><span class="ProductPrice">£179</span></div></div>
+        </a>
+      </main>
+
+    </div>
+
+    <footer class="footer">
+      <div class="FooterIconsContainer">
+        <img class="FooterIcons" src="assets/images/FacebookIcon.png" alt="Facebook">
+        <img class="FooterIcons" src="assets/images/InstagramIcon.png" alt="Instagram">
+        <img class="FooterIcons" src="assets/images/YoutubeIcon.png" alt="YouTube">
+      </div>
+      <div class="FooterCopyright">&copy; <span id="year">2025</span> Seraphine Atelier</div>
+    </footer>
+  </div>
+
+  <script>try{document.getElementById('year').textContent=new Date().getFullYear()}catch(e){};</script>
+  <script src="js/index.js" defer></script>
+</body>
+</html>

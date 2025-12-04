@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rings — Seraphine Atelier</title>
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+  <div class="page-wrapper">
+    <div class="PageContent">
+      <header class="TopNav">
+        <a href="home.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="products.html">Products</a>
+        <a href="contact.html">Contact</a>
+        <div class="IconNav" id="auth-buttons"></div>
+      </header>
+
+      <!-- Category sub-navigation -->
+      <nav class="CategoryNav" aria-label="Product categories">
+        <a href="products.html">All</a>
+        <a href="rings.html">Rings</a>
+        <a href="earrings.html">Earrings</a>
+        <a href="bracelets.html">Bracelets</a>
+        <a href="necklaces.html">Necklaces</a>
+        <a href="watches.html">Watches</a>
+      </nav>
+
+      <section class="TitleSection">
+        <h1 class="MainTitle">Rings</h1>
+        <p class="TitleDescription">Explore our curated selection of rings.</p>
+      </section>
+
+      <main class="ProductsGrid" aria-label="Rings">
+        <a class="ProductCard" href="product.html?product=buta-ring">
+          <div class="ProductImageWrap"><img class="ProductImage" src="assets/images/ButaRing.png" alt="Buta Ring"></div>
+          <div class="ProductInfo"><h3 class="ProductTitle">Buta Ring</h3><p class="ProductDescription">A beautifully detailed ring with traditional motifs. Handcrafted from ethically sourced materials with intricate detailing.</p><div class="ProductMeta"><span class="ProductPrice">£129</span></div></div>
+        </a>
+      </main>
+
+    </div>
+
+    <footer class="footer">
+      <div class="FooterIconsContainer">
+        <img class="FooterIcons" src="assets/images/FacebookIcon.png" alt="Facebook">
+        <img class="FooterIcons" src="assets/images/InstagramIcon.png" alt="Instagram">
+        <img class="FooterIcons" src="assets/images/YoutubeIcon.png" alt="YouTube">
+      </div>
+      <div class="FooterCopyright">&copy; <span id="year">2025</span> Seraphine Atelier</div>
+    </footer>
+  </div>
+
+  <script>try{document.getElementById('year').textContent=new Date().getFullYear()}catch(e){};</script>
+  <script src="js/index.js" defer></script>
+</body>
+</html>
