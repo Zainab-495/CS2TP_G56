@@ -17,7 +17,7 @@
         <div class="IconNav" id="auth-buttons"></div>
       </header>
 
-      <!-- Category sub-navigation -->
+      <!-- links to different product categories -->
       <nav class="CategoryNav" aria-label="Product categories">
         <a href="products.html">All</a>
         <a href="rings.html">Rings</a>
@@ -26,13 +26,14 @@
         <a href="necklaces.html">Necklaces</a>
         <a href="watches.html">Watches</a>
       </nav>
-
+ <!-- page title + short description -->
       <section class="TitleSection">
         <h1 class="MainTitle">Earrings</h1>
         <p class="TitleDescription">Finished earrings for everyday wear and special moments.</p>
       </section>
-
+ <!-- product grid container -->
       <main class="ProductsGrid" aria-label="Earrings">
+         <!-- single earring product card -->
         <a class="ProductCard" href="product.html?product=threadbare-earrings">
           <div class="ProductImageWrap"><img class="ProductImage" src="assets/images/ThreadbareEarrings.png" alt="Threadbare Earrings"></div>
           <div class="ProductInfo"><h3 class="ProductTitle">Threadbare Earrings</h3><p class="ProductDescription">Lightweight, elegant earrings for everyday wear. Perfect complement to any outfit with subtle elegance and timeless design.</p><div class="ProductMeta"><span class="ProductPrice">£89</span></div></div>
@@ -40,18 +41,21 @@
       </main>
 
     </div>
-
+ <!-- footer area -->
     <footer class="footer">
+      <!-- social media icons -->
       <div class="FooterIconsContainer">
         <img class="FooterIcons" src="assets/images/FacebookIcon.png" alt="Facebook">
         <img class="FooterIcons" src="assets/images/InstagramIcon.png" alt="Instagram">
         <img class="FooterIcons" src="assets/images/YoutubeIcon.png" alt="YouTube">
       </div>
+      <!-- dynamic year -->
       <div class="FooterCopyright">&copy; <span id="year">2025</span> Seraphine Atelier</div>
     </footer>
   </div>
-
+<!-- updates footer year automatically -->
   <script>try{document.getElementById('year').textContent=new Date().getFullYear()}catch(e){};</script>
+  <!-- main script -->
   <script src="js/index.js" defer></script>
 </body>
 </html>

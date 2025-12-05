@@ -3,25 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Your Cart</title>
+
+    <!-- main stylesheet for the site -->
     <link rel="stylesheet" href="css/index.css">
+     <!-- main JavaScript file -->
     <script src="js/index.js" defer></script>
 </head>
 <body>
     <div class="page-wrapper">
         <div class="PageContent">
-
+<!-- top navbar -->
         <div class="TopNav">
     <a href="home.html">Home</a>
     <a href="about.html">About</a>
     <a href="products.html">Products</a>
     <a href="contact.html">Contact</a>
+    <!-- icons added by JS if logged in -->
     <div class="IconNav"></div>
 </div>
-
+<!-- page title -->
 <h1>Your Basket</h1>
-
+<!-- container where cart items will be shown -->
 <div id="cartItems"></div>
-
+ <!-- link to checkout page -->
 <a href="checkout.html">Go to Checkout</a>
 
 <script>
@@ -63,17 +67,20 @@ function updateQty(id, change) {
         </script>
 
         </div>
-
+<!-- footer area -->
         <div id="site-footer">
             <footer class="footer">
+                <!-- social media icons -->
                 <div class="FooterIconsContainer">
                     <img src="assets/images/FacebookIcon.png" class="FooterIcons" alt="facebook">
                     <img src="assets/images/InstagramIcon.png" class="FooterIcons" alt="instagram">
                     <img src="assets/images/YoutubeIcon.png" class="FooterIcons" alt="youtube">
                 </div>
+                <!-- copyright -->
                 <p class="ContactTitle">© 2025 Luxury Jewelry Store</p>
             </footer>
         </div>
+        <!-- duplicate JS include (can stay, but not necessary) -->
         <script src="js/index.js" defer></script>
     </div>
 </body>
