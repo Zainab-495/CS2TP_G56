@@ -46,7 +46,7 @@
 
 <!-- Products Grid (uses CSS in css/index.css) -->
 <main class="ProductsGrid" id="productsGrid" aria-label="Product list">
-
+ <!-- product card 1 -->
     <a class="ProductCard" href="product.html?product=buta-ring" data-name="Buta Ring" data-category="Ring">
         <div class="ProductImageWrap">
             <img class="ProductImage" src="assets/images/ButaRing.png" alt="Buta Ring">
@@ -54,15 +54,18 @@
         </div>
         <div class="ProductInfo">
             <h3 class="ProductTitle">Buta Ring</h3>
+            <!-- short description -->
             <p class="ProductDescription">A beautifully detailed ring with traditional motifs. Handcrafted from ethically sourced materials with intricate detailing.</p>
+            <!-- stock + price info -->
             <div class="ProductMeta">
                 <span class="StockText in-stock">In Stock</span>
                 <span class="ProductPrice">£129</span>
             </div>
+             <!-- quick add-to-cart button -->
             <button class="AddToCartButton" onclick="addToCartQuick(event, 'Buta Ring', 1)">Add to Cart</button>
         </div>
     </a>
-
+<!-- product card 2 -->
     <a class="ProductCard" href="product.html?product=threadbare-earrings" data-name="Threadbare Earrings" data-category="Earrings">
         <div class="ProductImageWrap">
             <img class="ProductImage" src="assets/images/ThreadbareEarrings.png" alt="Threadbare Earrings">
@@ -78,7 +81,7 @@
             <button class="AddToCartButton" onclick="addToCartQuick(event, 'Threadbare Earrings', 1)">Add to Cart</button>
         </div>
     </a>
-
+ <!-- product card 3 -->
     <a class="ProductCard" href="product.html?product=bleeding-heart-bracelet" data-name="Bleeding Heart Bracelet" data-category="Bracelet">
         <div class="ProductImageWrap">
             <img class="ProductImage" src="assets/images/BleedingHeartBracelet.png" alt="Bleeding Heart Bracelet">
@@ -95,6 +98,7 @@
         </div>
     </a>
 
+<!-- product card 4 -->
     <a class="ProductCard" href="product.html?product=handcrafted-jewellry" data-name="Signature Necklace" data-category="Necklace">
         <div class="ProductImageWrap">
             <img class="ProductImage" src="assets/images/HandCraftedJewellry.png" alt="Handcrafted Jewelry">
@@ -111,6 +115,7 @@
         </div>
     </a>
 
+<!-- product card 5 -->
     <a class="ProductCard" href="product.html?product=signature-necklace" data-name="Signature Watch" data-category="Watch">
         <div class="ProductImageWrap">
             <img class="ProductImage" src="assets/images/LandingPageImage.png" alt="Signature Watch">
@@ -130,7 +135,7 @@
         </main>
 
     </div>
-
+ <!-- footer section -->
     <div id="site-footer">
     <footer class="footer">
         <div class="FooterIconsContainer">
@@ -149,18 +154,19 @@ document.getElementById('searchInput').addEventListener('keyup', function(e) {
     const query = e.target.value.toLowerCase();
     const products = document.querySelectorAll('.ProductCard');
     
+    // filter products by name or category
     products.forEach(product => {
         const name = product.getAttribute('data-name').toLowerCase();
         const category = product.getAttribute('data-category').toLowerCase();
         
         if (name.includes(query) || category.includes(query) || query === '') {
-            product.style.display = 'block';
+            product.style.display = 'block'; // show product
         } else {
-            product.style.display = 'none';
+            product.style.display = 'none'; // hide product
         }
     });
 });
-
+// quick add-to-cart function
 function addToCartQuick(e, name, qty){
     e.preventDefault();
     fetch('api/add-to-cart.php', {

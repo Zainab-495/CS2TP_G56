@@ -7,40 +7,54 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-50">
+    <!-- full-screen container centering the card -->
     <div class="min-h-screen flex items-center justify-center">
+        <!-- registration card -->
         <div class="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
+            <!-- heading -->
             <h1 class="text-3xl font-bold mb-6 text-center">Register</h1>
+            
+             <!-- registration form -->
             <form id="register-form" class="space-y-4">
+                
+                 <!-- username field -->
                 <div>
                     <label class="block text-sm font-bold mb-2">Username</label>
                     <input type="text" name="username" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-600">
                 </div>
+                <!-- email field -->
                 <div>
                     <label class="block text-sm font-bold mb-2">Email</label>
                     <input type="email" name="email" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-600">
                 </div>
+                <!-- optional full name -->
                 <div>
                     <label class="block text-sm font-bold mb-2">Full Name (Optional)</label>
                     <input type="text" name="fullName" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-600">
                 </div>
+                <!-- password field -->
                 <div>
                     <label class="block text-sm font-bold mb-2">Password</label>
                     <input type="password" name="password" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-600">
                 </div>
+                <!-- submit button -->
                 <button type="submit" class="w-full bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-3 rounded-lg">
                     Register
                 </button>
+
+                <!-- link to login page -->
                 <p class="text-center text-sm">
                     Already have an account?
                     <a href="login.html" class="text-yellow-600 hover:underline">Login</a>
                 </p>
             </form>
 
+ <!-- error message display -->
             <div id="error-msg" class="mt-4 text-red-600 text-center hidden"></div>
         </div>
     </div>
 
-    <!-- External JS -->
+    <!-- external script handles form submission + API request -->
     <script src="js/register.js"></script>
 </body>
 </html>
