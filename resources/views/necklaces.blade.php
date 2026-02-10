@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Necklaces — Seraphine Atelier</title>
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+  <div class="page-wrapper">
+    <div class="PageContent">
+      <!-- main site navigation -->
+      <header class="TopNav">
+        <a href="home.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="products.html">Products</a>
+        <a href="contact.html">Contact</a>
+        <!-- login/profile/cart icons added by JS -->
+        <div class="IconNav" id="auth-buttons"></div>
+      </header>
+
+      <!-- product category navigation -->
+      <nav class="CategoryNav" aria-label="Product categories">
+        <a href="products.html">All</a>
+        <a href="rings.html">Rings</a>
+        <a href="earrings.html">Earrings</a>
+        <a href="bracelets.html">Bracelets</a>
+        <a href="necklaces.html">Necklaces</a>
+        <a href="watches.html">Watches</a>
+      </nav>
+ <!-- page title + small intro -->
+      <section class="TitleSection">
+        <h1 class="MainTitle">Necklaces</h1>
+        <p class="TitleDescription">Statement and everyday necklaces.</p>
+      </section>
+ <!-- necklace products grid -->
+      <main class="ProductsGrid" aria-label="Necklaces">
+         <!-- product card 1 + description + price -->
+        <a class="ProductCard" href="product.html?product=handcrafted-jewellry">
+          <div class="ProductImageWrap"><img class="ProductImage" src="assets/images/HandCraftedJewellry.png" alt="Signature Necklace"></div>
+          <div class="ProductInfo"><h3 class="ProductTitle">Signature Necklace</h3><p class="ProductDescription">Statement necklace made by skilled artisans. Designed to elevate any occasion with timeless elegance and premium craftsmanship.</p><div class="ProductMeta"><span class="ProductPrice">£199</span></div></div>
+        </a>
+<<<<<<< HEAD
+        <!-- product card  2 + description + price -->
+=======
+
+<a class="ProductCard" href="product.html?product=gold-necklace">
+          <div class="ProductImageWrap"><img class="ProductImage" src="assets/images/gold-necklace.jpg" alt="Gold Necklace"></div>
+          <div class="ProductInfo"><h3 class="ProductTitle">Gold Necklace</h3><p class="ProductDescription">Statement necklace made by skilled artisans. Designed to elevate any occasion with timeless elegance and premium craftsmanship.</p><div class="ProductMeta"><span class="ProductPrice">£250</span></div></div>
+        </a>
+
+        <a class="ProductCard" href="product.html?product=pearl-necklace">
+          <div class="ProductImageWrap"><img class="ProductImage" src="assets/images/pearl-necklace.jpg" alt="Pearl Necklace"></div>
+          <div class="ProductInfo"><h3 class="ProductTitle">Pearl Necklace</h3><p class="ProductDescription">Statement necklace made by skilled artisans. Designed to elevate any occasion with timeless elegance and premium craftsmanship.</p><div class="ProductMeta"><span class="ProductPrice">£240</span></div></div>
+        </a>
+
+        <a class="ProductCard" href="product.html?product=diamond-choker">
+          <div class="ProductImageWrap"><img class="ProductImage" src="assets/images/diamond-choker.jpg" alt="Diamond Choker"></div>
+          <div class="ProductInfo"><h3 class="ProductTitle">Diamond Choker</h3><p class="ProductDescription">Statement necklace made by skilled artisans. Designed to elevate any occasion with timeless elegance and premium craftsmanship.</p><div class="ProductMeta"><span class="ProductPrice">£280</span></div></div>
+        </a>
+
+        <a class="ProductCard" href="product.html?product=layered-necklace">
+          <div class="ProductImageWrap"><img class="ProductImage" src="assets/images/layered-necklace.jpg" alt="Layered Necklace"></div>
+          <div class="ProductInfo"><h3 class="ProductTitle">Layered Necklace</h3><p class="ProductDescription">Statement necklace made by skilled artisans. Designed to elevate any occasion with timeless elegance and premium craftsmanship.</p><div class="ProductMeta"><span class="ProductPrice">£450</span></div></div>
+        </a>
+
+
+
+
+
+>>>>>>> b4c5a9c09529ecbaff02d7f14bc8223fd0fe3de7
+        <a class="ProductCard" href="product.html?product=signature-pendant">
+          <div class="ProductImageWrap"><img class="ProductImage" src="assets/images/LandingPageImage.png" alt="Signature Pendant"></div>
+          <div class="ProductInfo"><h3 class="ProductTitle">Signature Pendant</h3><p class="ProductDescription">A timeless pendant inspired by classical forms. Precision craftsmanship meets elegant design for the discerning collector.</p><div class="ProductMeta"><span class="ProductPrice">£179</span></div></div>
+        </a>
+      </main>
+
+    </div>
+<!-- footer with social icons -->
+    <footer class="footer">
+      <div class="FooterIconsContainer">
+        <img class="FooterIcons" src="assets/images/FacebookIcon.png" alt="Facebook">
+        <img class="FooterIcons" src="assets/images/InstagramIcon.png" alt="Instagram">
+        <img class="FooterIcons" src="assets/images/YoutubeIcon.png" alt="YouTube">
+      </div>
+      <!-- copyright -->
+      <div class="FooterCopyright">&copy; <span id="year">2025</span> Seraphine Atelier</div>
+    </footer>
+  </div>
+ <!-- keep footer year up-to-date -->
+  <script>try{document.getElementById('year').textContent=new Date().getFullYear()}catch(e){};</script>
+   <!-- main JS file -->
+  <script src="js/index.js" defer></script>
+</body>
+</html>
