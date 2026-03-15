@@ -4,6 +4,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +16,13 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/', fn() => view('home'))->name('home');
 Route::get('/about', fn() => view('about'))->name('about');
+
+/*
+|-----------------------------------------------------------------------
+| Dashboard (Breeze)
+|-----------------------------------------------------------------------
+*/
+Route::get('/dashboard', fn() => view('dashboard'))->middleware(['auth', 'verified'])->name('dashboard');
 
 /*
 |-----------------------------------------------------------------------
@@ -32,6 +41,7 @@ Route::get('/category/watches',   fn() => view('watches'))->name('category.watch
 |-----------------------------------------------------------------------
 */
 Route::get('/products', fn() => view('products'))->name('products.index');
+Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
 
 /*
 |-----------------------------------------------------------------------
@@ -56,6 +66,8 @@ Route::post('/logout',          [AuthController::class, 'logout'])->name('logout
 // JSON helpers for the JS frontend
 Route::get('/auth/status',   [AuthController::class, 'status'])->name('auth.status');
 Route::get('/session/init',  [AuthController::class, 'sessionInit'])->name('session.init');
+Route::get('/login-custom',    [AuthController::class, 'showLogin'])->name('login-custom');
+Route::get('/register-custom', [AuthController::class, 'showRegister'])->name('register-custom');
 
 /*
 |-----------------------------------------------------------------------
@@ -77,6 +89,15 @@ Route::post('/cart/place-order', [CartController::class, 'placeOrder'])->name('c
 */
 Route::get('/checkout',  fn() => view('checkout'))->name('checkout.index');
 Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkout.store');
+
+/*
+|-----------------------------------------------------------------------
+| Orders
+|-----------------------------------------------------------------------
+*/
+Route::get('/orders',              [OrderController::class, 'index'])->name('orders.index');
+Route::get('/orders/{id}',         [OrderController::class, 'show'])->name('orders.show');
+Route::post('/orders/{id}/cancel', [OrderController::class, 'cancel'])->name('orders.cancel');
 
 /*
 |-----------------------------------------------------------------------
