@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\Order;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,8 +17,23 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
+        $user = $request->user();
+        $isAdmin = (bool) $user->is_admin;
+
+        if ($isAdmin) {
+            $orders = Order::with('user')
+                ->orderByDesc('created_at')
+                ->get();
+        } else {
+            $orders = Order::where('user_id', $user->id)
+                ->orderByDesc('created_at')
+                ->get();
+        }
+
         return view('profile.edit', [
-            'user' => $request->user(),
+            'user'    => $user,
+            'orders'  => $orders,
+            'isAdmin' => $isAdmin,
         ]);
     }
 

@@ -27,6 +27,20 @@
                     top: auto !important;
                 }
             }
+        .ProductCardActions { display: flex; gap: 8px; margin-top: 10px; }
+        .AddToCartButton { flex: 1; }
+        .WishlistBtn {
+            background: none;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 8px 10px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: all 0.2s;
+            color: #aaa;
+            line-height: 1;
+        }
+        .WishlistBtn:hover, .WishlistBtn.active { color: #e74c3c; border-color: #e74c3c; }
         </style>
 </head>
 <body>
@@ -88,11 +102,11 @@
             <!-- stock + price info -->
             <div class="ProductMeta">
                 <span class="StockText in-stock">In Stock</span>
-                <span class="ProductPrice">£185</span>
+                <span class="ProductPrice">Â£185</span>
             </div>
             <div class="QuantitySelector"><label>Qty:</label><select id="qty-buta-ring"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></div>
              <!-- quick add-to-cart button -->
-            <button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Buta Ring', 'qty-buta-ring')">Add to Cart</button>
+            <div class="ProductCardActions"><button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Buta Ring', 'qty-buta-ring')">Add to Cart</button><button type="button" class="WishlistBtn" onclick="toggleWishlist(event, this)" title="Add to wishlist">&#9825;</button></div>
         </div>
     </a>
 <!-- product card 2 -->
@@ -106,10 +120,10 @@
             <p class="ProductDescription">A beautifully Sapphire blue ring with traditional motifs. Handcrafted from ethically sourced materials with intricate detailing.</p>
             <div class="ProductMeta">
                 <span class="StockText in-stock">In Stock</span>
-                <span class="ProductPrice">£420</span>
+                <span class="ProductPrice">Â£420</span>
             </div>
             <div class="QuantitySelector"><label>Qty:</label><select id="qty-saphire-ring"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></div>
-            <button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Saphire Ring', 'qty-saphire-ring')">Add to Cart</button>
+            <div class="ProductCardActions"><button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Saphire Ring', 'qty-saphire-ring')">Add to Cart</button><button type="button" class="WishlistBtn" onclick="toggleWishlist(event, this)" title="Add to wishlist">&#9825;</button></div>
         </div>
     </a>
 
@@ -123,10 +137,10 @@
             <p class="ProductDescription">A beautifully Rose gold goldern detailed ring with traditional motifs. Handcrafted from ethically sourced materials with intricate detailing.</p>
             <div class="ProductMeta">
                 <span class="StockText in-stock">In Stock</span>
-                <span class="ProductPrice">£385</span>
+                <span class="ProductPrice">Â£385</span>
             </div>
             <div class="QuantitySelector"><label>Qty:</label><select id="qty-rose-gold-ring"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></div>
-            <button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Rose Gold Ring', 'qty-rose-gold-ring')">Add to Cart</button>
+            <div class="ProductCardActions"><button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Rose Gold Ring', 'qty-rose-gold-ring')">Add to Cart</button><button type="button" class="WishlistBtn" onclick="toggleWishlist(event, this)" title="Add to wishlist">&#9825;</button></div>
         </div>
     </a>
 
@@ -140,10 +154,10 @@
             <p class="ProductDescription">A vintage-inspired ring with timeless elegance. Handcrafted from ethically sourced materials with intricate detailing.</p>
             <div class="ProductMeta">
                 <span class="StockText in-stock">In Stock</span>
-                <span class="ProductPrice">£650</span>
+                <span class="ProductPrice">Â£650</span>
             </div>
             <div class="QuantitySelector"><label>Qty:</label><select id="qty-vintage-ring"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></div>
-            <button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Vintage Ring', 'qty-vintage-ring')">Add to Cart</button>
+            <div class="ProductCardActions"><button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Vintage Ring', 'qty-vintage-ring')">Add to Cart</button><button type="button" class="WishlistBtn" onclick="toggleWishlist(event, this)" title="Add to wishlist">&#9825;</button></div>
         </div>
     </a>
 
@@ -157,10 +171,10 @@
             <p class="ProductDescription">A dazzling diamond ring that captures the essence of luxury and elegance. Handcrafted from ethically sourced materials with intricate detailing.</p>
             <div class="ProductMeta">
                 <span class="StockText in-stock">In Stock</span>
-                <span class="ProductPrice">£550</span>
+                <span class="ProductPrice">Â£550</span>
             </div>
             <div class="QuantitySelector"><label>Qty:</label><select id="qty-diamond-ring"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></div>
-            <button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Diamond Ring', 'qty-diamond-ring')">Add to Cart</button>
+            <div class="ProductCardActions"><button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Diamond Ring', 'qty-diamond-ring')">Add to Cart</button><button type="button" class="WishlistBtn" onclick="toggleWishlist(event, this)" title="Add to wishlist">&#9825;</button></div>
         </div>
     </a>
 
@@ -176,10 +190,10 @@
             <p class="ProductDescription">Lightweight, elegant earrings for everyday wear. Perfect complement to any outfit with subtle elegance.</p>
             <div class="ProductMeta">
                 <span class="StockText in-stock">In Stock</span>
-                <span class="ProductPrice">£120</span>
+                <span class="ProductPrice">Â£120</span>
             </div>
             <div class="QuantitySelector"><label>Qty:</label><select id="qty-threadbare-earrings"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></div>
-            <button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Threadbare Earrings', 'qty-threadbare-earrings')">Add to Cart</button>
+            <div class="ProductCardActions"><button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Threadbare Earrings', 'qty-threadbare-earrings')">Add to Cart</button><button type="button" class="WishlistBtn" onclick="toggleWishlist(event, this)" title="Add to wishlist">&#9825;</button></div>
         </div>
     </a>
 
@@ -193,10 +207,10 @@
             <p class="ProductDescription">A sparkling diamond earring that adds a touch of glamour to any look. Perfect complement to any outfit with subtle elegance.</p>
             <div class="ProductMeta">
                 <span class="StockText in-stock">In Stock</span>
-                <span class="ProductPrice">£480</span>
+                <span class="ProductPrice">Â£480</span>
             </div>
             <div class="QuantitySelector"><label>Qty:</label><select id="qty-diamond-earring"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></div>
-            <button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Diamond Earrings', 'qty-diamond-earring')">Add to Cart</button>
+            <div class="ProductCardActions"><button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Diamond Earrings', 'qty-diamond-earring')">Add to Cart</button><button type="button" class="WishlistBtn" onclick="toggleWishlist(event, this)" title="Add to wishlist">&#9825;</button></div>
         </div>
     </a>
 
@@ -210,10 +224,10 @@
             <p class="ProductDescription">A sparkling gold earring that adds a touch of glamour to any look. Perfect complement to any outfit with subtle elegance.</p>
             <div class="ProductMeta">
                 <span class="StockText in-stock">In Stock</span>
-                <span class="ProductPrice">£195</span>
+                <span class="ProductPrice">Â£195</span>
             </div>
             <div class="QuantitySelector"><label>Qty:</label><select id="qty-gold-hoop-earring"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></div>
-            <button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Gold Hoop', 'qty-gold-hoop-earring')">Add to Cart</button>
+            <div class="ProductCardActions"><button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Gold Hoop', 'qty-gold-hoop-earring')">Add to Cart</button><button type="button" class="WishlistBtn" onclick="toggleWishlist(event, this)" title="Add to wishlist">&#9825;</button></div>
         </div>
     </a>
 
@@ -227,10 +241,10 @@
             <p class="ProductDescription">Elegant pearl drop earrings that add a touch of sophistication to any outfit. Perfect complement to any outfit with subtle elegance.</p>
             <div class="ProductMeta">
                 <span class="StockText in-stock">In Stock</span>
-                <span class="ProductPrice">£275</span>
+                <span class="ProductPrice">Â£275</span>
             </div>
             <div class="QuantitySelector"><label>Qty:</label><select id="qty-pearl-drop-earring"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></div>
-            <button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Pearl Drop', 'qty-pearl-drop-earring')">Add to Cart</button>
+            <div class="ProductCardActions"><button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Pearl Drop', 'qty-pearl-drop-earring')">Add to Cart</button><button type="button" class="WishlistBtn" onclick="toggleWishlist(event, this)" title="Add to wishlist">&#9825;</button></div>
         </div>
     </a>
 
@@ -244,10 +258,10 @@
             <p class="ProductDescription">A sparkling silver stud earring that adds a touch of glamour to any look. Perfect complement to any outfit with subtle elegance.</p>
             <div class="ProductMeta">
                 <span class="StockText in-stock">In Stock</span>
-                <span class="ProductPrice">£145</span>
+                <span class="ProductPrice">Â£145</span>
             </div>
             <div class="QuantitySelector"><label>Qty:</label><select id="qty-silver-stud-earring"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></div>
-            <button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Silver Stud', 'qty-silver-stud-earring')">Add to Cart</button>
+            <div class="ProductCardActions"><button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Silver Stud', 'qty-silver-stud-earring')">Add to Cart</button><button type="button" class="WishlistBtn" onclick="toggleWishlist(event, this)" title="Add to wishlist">&#9825;</button></div>
         </div>
     </a>
 
@@ -261,10 +275,10 @@
             <p class="ProductDescription">Handcrafted bracelet with romantic detailing. A statement piece celebrating love and craftsmanship.</p>
             <div class="ProductMeta">
                 <span class="StockText in-stock">In Stock</span>
-                <span class="ProductPrice">£245</span>
+                <span class="ProductPrice">Â£245</span>
             </div>
             <div class="QuantitySelector"><label>Qty:</label><select id="qty-bleeding-heart-bracelet"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></div>
-            <button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Bleeding Heart Bracelet', 'qty-bleeding-heart-bracelet')">Add to Cart</button>
+            <div class="ProductCardActions"><button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Bleeding Heart Bracelet', 'qty-bleeding-heart-bracelet')">Add to Cart</button><button type="button" class="WishlistBtn" onclick="toggleWishlist(event, this)" title="Add to wishlist">&#9825;</button></div>
         </div>
     </a>
 
@@ -278,9 +292,9 @@
             <p class="ProductDescription">Golden baddazzling heavy bangle bracelet perfect for weddings and special occasions. A statement piece celebrating love and craftsmanship.</p>
             <div class="ProductMeta">
                 <span class="StockText low-stock">Low Stock</span>
-                <span class="ProductPrice">£380</span>
+                <span class="ProductPrice">Â£380</span>
             </div>
-            <button class="AddToCartButton" onclick="addToCartQuick(event, 'Gold Bangle', 1)">Add to Cart</button>
+            <div class="ProductCardActions"><button class="AddToCartButton" onclick="addToCartQuick(event, 'Gold Bangle', 1)">Add to Cart</button><button type="button" class="WishlistBtn" onclick="toggleWishlist(event, this)" title="Add to wishlist">&#9825;</button></div>
         </div>
     </a>
 
@@ -295,10 +309,10 @@
             <p class="ProductDescription">An embezzeling factory made Cuban Bracelet full of luxury. A statement piece celebrating love and craftsmanship.</p>
             <div class="ProductMeta">
                 <span class="StockText in-stock">In Stock</span>
-                <span class="ProductPrice">£520</span>
+                <span class="ProductPrice">Â£520</span>
             </div>
             <div class="QuantitySelector"><label>Qty:</label><select id="qty-cuban-bracelet"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></div>
-            <button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Cuban Bracelet', 'qty-cuban-bracelet')">Add to Cart</button>
+            <div class="ProductCardActions"><button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Cuban Bracelet', 'qty-cuban-bracelet')">Add to Cart</button><button type="button" class="WishlistBtn" onclick="toggleWishlist(event, this)" title="Add to wishlist">&#9825;</button></div>
         </div>
     </a>
 
@@ -312,10 +326,10 @@
             <p class="ProductDescription">Handcrafted bracelet with romantic detailing. A statement piece celebrating love and craftsmanship.</p>
             <div class="ProductMeta">
                 <span class="StockText in-stock">In Stock</span>
-                <span class="ProductPrice">£310</span>
+                <span class="ProductPrice">Â£310</span>
             </div>
             <div class="QuantitySelector"><label>Qty:</label><select id="qty-charm-bracelet"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></div>
-            <button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Charm Bracelet', 'qty-charm-bracelet')">Add to Cart</button>
+            <div class="ProductCardActions"><button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Charm Bracelet', 'qty-charm-bracelet')">Add to Cart</button><button type="button" class="WishlistBtn" onclick="toggleWishlist(event, this)" title="Add to wishlist">&#9825;</button></div>
         </div>
     </a>
 
@@ -329,10 +343,10 @@
             <p class="ProductDescription">Handcrafted leather bracelet with a rugged yet refined look. A statement piece celebrating love and craftsmanship.</p>
             <div class="ProductMeta">
                 <span class="StockText in-stock">In Stock</span>
-                <span class="ProductPrice">£175</span>
+                <span class="ProductPrice">Â£175</span>
             </div>
             <div class="QuantitySelector"><label>Qty:</label><select id="qty-leather-bracelet"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></div>
-            <button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Leather Bracelet', 'qty-leather-bracelet')">Add to Cart</button>
+            <div class="ProductCardActions"><button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Leather Bracelet', 'qty-leather-bracelet')">Add to Cart</button><button type="button" class="WishlistBtn" onclick="toggleWishlist(event, this)" title="Add to wishlist">&#9825;</button></div>
         </div>
     </a>
 
@@ -350,9 +364,9 @@
             <p class="ProductDescription">Statement necklace made by skilled artisans. Designed to elevate any occasion with timeless elegance.</p>
             <div class="ProductMeta">
                 <span class="StockText in-stock">In Stock</span>
-                <span class="ProductPrice">£380</span>
+                <span class="ProductPrice">Â£380</span>
             </div>
-            <button class="AddToCartButton" onclick="addToCartQuick(event, 'Signature Necklace', 1)">Add to Cart</button>
+            <div class="ProductCardActions"><button class="AddToCartButton" onclick="addToCartQuick(event, 'Signature Necklace', 1)">Add to Cart</button><button type="button" class="WishlistBtn" onclick="toggleWishlist(event, this)" title="Add to wishlist">&#9825;</button></div>
         </div>
     </a>
 
@@ -367,9 +381,9 @@
             <p class="ProductDescription">Statement necklace made by skilled artisans. Designed to elevate any occasion with timeless elegance.</p>
             <div class="ProductMeta">
                 <span class="StockText in-stock">In Stock</span>
-                <span class="ProductPrice">£720</span>
+                <span class="ProductPrice">Â£720</span>
             </div>
-            <button class="AddToCartButton" onclick="addToCartQuick(event, 'Diamond Choker', 1)">Add to Cart</button>
+            <div class="ProductCardActions"><button class="AddToCartButton" onclick="addToCartQuick(event, 'Diamond Choker', 1)">Add to Cart</button><button type="button" class="WishlistBtn" onclick="toggleWishlist(event, this)" title="Add to wishlist">&#9825;</button></div>
         </div>
     </a>
 
@@ -383,10 +397,10 @@
             <p class="ProductDescription">Statement necklace made by skilled artisans. Designed to elevate any occasion with timeless elegance.</p>
             <div class="ProductMeta">
                 <span class="StockText in-stock">In Stock</span>
-                <span class="ProductPrice">£420</span>
+                <span class="ProductPrice">Â£420</span>
             </div>
             <div class="QuantitySelector"><label>Qty:</label><select id="qty-pearl-necklace"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></div>
-            <button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Pearl Necklace', 'qty-pearl-necklace')">Add to Cart</button>
+            <div class="ProductCardActions"><button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Pearl Necklace', 'qty-pearl-necklace')">Add to Cart</button><button type="button" class="WishlistBtn" onclick="toggleWishlist(event, this)" title="Add to wishlist">&#9825;</button></div>
         </div>
     </a>
 
@@ -400,10 +414,10 @@
             <p class="ProductDescription">Statement necklace made by skilled artisans. Designed to elevate any occasion with timeless elegance.</p>
             <div class="ProductMeta">
                 <span class="StockText in-stock">In Stock</span>
-                <span class="ProductPrice">£540</span>
+                <span class="ProductPrice">Â£540</span>
             </div>
             <div class="QuantitySelector"><label>Qty:</label><select id="qty-gold-necklace"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></div>
-            <button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Gold Necklace', 'qty-gold-necklace')">Add to Cart</button>
+            <div class="ProductCardActions"><button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Gold Necklace', 'qty-gold-necklace')">Add to Cart</button><button type="button" class="WishlistBtn" onclick="toggleWishlist(event, this)" title="Add to wishlist">&#9825;</button></div>
         </div>
     </a>
 
@@ -417,10 +431,10 @@
             <p class="ProductDescription">Statement necklace made by skilled artisans. Designed to elevate any occasion with timeless elegance.</p>
             <div class="ProductMeta">
                 <span class="StockText in-stock">In Stock</span>
-                <span class="ProductPrice">£340</span>
+                <span class="ProductPrice">Â£340</span>
             </div>
             <div class="QuantitySelector"><label>Qty:</label><select id="qty-layered-necklace"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></div>
-            <button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Layered Necklace', 'qty-layered-necklace')">Add to Cart</button>
+            <div class="ProductCardActions"><button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Layered Necklace', 'qty-layered-necklace')">Add to Cart</button><button type="button" class="WishlistBtn" onclick="toggleWishlist(event, this)" title="Add to wishlist">&#9825;</button></div>
         </div>
     </a>
 
@@ -434,10 +448,10 @@
             <p class="ProductDescription">A timeless gold factory watch inspired by classical forms. Precision craftsmanship meets elegant design.</p>
             <div class="ProductMeta">
                 <span class="StockText in-stock">In Stock</span>
-                <span class="ProductPrice">£650</span>
+                <span class="ProductPrice">Â£650</span>
             </div>
             <div class="QuantitySelector"><label>Qty:</label><select id="qty-gold-watch"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></div>
-            <button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Gold Watch', 'qty-gold-watch')">Add to Cart</button>
+            <div class="ProductCardActions"><button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Gold Watch', 'qty-gold-watch')">Add to Cart</button><button type="button" class="WishlistBtn" onclick="toggleWishlist(event, this)" title="Add to wishlist">&#9825;</button></div>
         </div>
     </a>
 
@@ -451,10 +465,10 @@
             <p class="ProductDescription">A timeless watch inspired by classical forms. Precision craftsmanship meets elegant design.</p>
             <div class="ProductMeta">
                 <span class="StockText in-stock">In Stock</span>
-                <span class="ProductPrice">£290</span>
+                <span class="ProductPrice">Â£290</span>
             </div>
             <div class="QuantitySelector"><label>Qty:</label><select id="qty-sport-watch"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></div>
-            <button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Sport Watch', 'qty-sport-watch')">Add to Cart</button>
+            <div class="ProductCardActions"><button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Sport Watch', 'qty-sport-watch')">Add to Cart</button><button type="button" class="WishlistBtn" onclick="toggleWishlist(event, this)" title="Add to wishlist">&#9825;</button></div>
         </div>
     </a>
 
@@ -468,10 +482,10 @@
             <p class="ProductDescription">A timeless factory silver watch inspired by classical forms. Precision craftsmanship meets elegant design.</p>
             <div class="ProductMeta">
                 <span class="StockText in-stock">In Stock</span>
-                <span class="ProductPrice">£410</span>
+                <span class="ProductPrice">Â£410</span>
             </div>
             <div class="QuantitySelector"><label>Qty:</label><select id="qty-silver-watch"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></div>
-            <button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Silver Watch', 'qty-silver-watch')">Add to Cart</button>
+            <div class="ProductCardActions"><button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Silver Watch', 'qty-silver-watch')">Add to Cart</button><button type="button" class="WishlistBtn" onclick="toggleWishlist(event, this)" title="Add to wishlist">&#9825;</button></div>
         </div>
     </a>
 
@@ -485,10 +499,10 @@
             <p class="ProductDescription">A timeless classic leather watch inspired by classical forms. Precision craftsmanship meets elegant design.</p>
             <div class="ProductMeta">
                 <span class="StockText in-stock">In Stock</span>
-                <span class="ProductPrice">£350</span>
+                <span class="ProductPrice">Â£350</span>
             </div>
             <div class="QuantitySelector"><label>Qty:</label><select id="qty-classic-leather-watch"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></div>
-            <button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Classic Leather Watch', 'qty-classic-leather-watch')">Add to Cart</button>
+            <div class="ProductCardActions"><button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Classic Leather Watch', 'qty-classic-leather-watch')">Add to Cart</button><button type="button" class="WishlistBtn" onclick="toggleWishlist(event, this)" title="Add to wishlist">&#9825;</button></div>
         </div>
     </a>
 
@@ -504,10 +518,10 @@
             <p class="ProductDescription">A timeless watch inspired by classical forms. Precision craftsmanship meets elegant design.</p>
             <div class="ProductMeta">
                 <span class="StockText in-stock">In Stock</span>
-                <span class="ProductPrice">£850</span>
+                <span class="ProductPrice">Â£850</span>
             </div>
             <div class="QuantitySelector"><label>Qty:</label><select id="qty-signature-watch"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></div>
-            <button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Luxury Watch', 'qty-signature-watch')">Add to Cart</button>
+            <div class="ProductCardActions"><button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Luxury Watch', 'qty-signature-watch')">Add to Cart</button><button type="button" class="WishlistBtn" onclick="toggleWishlist(event, this)" title="Add to wishlist">&#9825;</button></div>
         </div>
     </a>
 
@@ -558,7 +572,7 @@
                     <li>Ethically sourced materials</li>
                     <li>Comes with certificate of authenticity</li>
                     <li>30-day return policy</li>
-                    <li>Free shipping on orders over £200</li>
+                    <li>Free shipping on orders over Â£200</li>
                 </ul>
             </div>
         </div>
@@ -575,7 +589,7 @@
             <img src="{{ asset('images/InstagramIcon.png') }}" class="FooterIcons" alt="instagram">
             <img src="{{ asset('images/YoutubeIcon.png') }}" class="FooterIcons" alt="youtube">
         </div>
-        <p class="ContactTitle">© 2025 Luxury Jewelry Store</p>
+        <p class="ContactTitle">Â© 2025 Luxury Jewelry Store</p>
     </footer>
 </div>
 <script src="{{ asset('js/index.js') }}" defer></script>
@@ -640,7 +654,7 @@ function showProductDetail() {
                     addToCartQuick(event, productName, qty);
                 } else {
                     // Fallback if function not available
-                    alert('Added ' + qty + ' × ' + productName + ' to cart!');
+                    alert('Added ' + qty + ' Ã— ' + productName + ' to cart!');
                 }
             };
             
@@ -703,12 +717,38 @@ if (document.getElementById('searchInput')) {
         document.querySelectorAll('.ProductCard').forEach(card => {
             card.addEventListener('click', evt => {
                 const t = evt.target;
-                if (t.closest('select') || t.closest('.AddToCartButton')) {
+                if (t.closest('select') || t.closest('.AddToCartButton') || t.closest('.WishlistBtn')) {
                     evt.preventDefault();
                 }
             });
         });
     });
+    </script>
+
+    <script>
+    function toggleWishlist(event, btn) {
+        event.preventDefault();
+        event.stopPropagation();
+        btn.classList.toggle('active');
+        btn.innerHTML = btn.classList.contains('active') ? '&#9829;' : '&#9825;';
+        const productName = btn.closest('.ProductInfo').querySelector('.ProductTitle').textContent;
+        const msg = btn.classList.contains('active') ? `${productName} added to wishlist` : `${productName} removed from wishlist`;
+        showToast(msg);
+    }
+
+    function showToast(message) {
+        let toast = document.getElementById('wishlist-toast');
+        if (!toast) {
+            toast = document.createElement('div');
+            toast.id = 'wishlist-toast';
+            toast.style.cssText = 'position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#111;color:#fff;padding:12px 24px;border-radius:4px;font-size:14px;z-index:9999;transition:opacity 0.3s;';
+            document.body.appendChild(toast);
+        }
+        toast.textContent = message;
+        toast.style.opacity = '1';
+        clearTimeout(toast._timeout);
+        toast._timeout = setTimeout(() => { toast.style.opacity = '0'; }, 2500);
+    }
     </script>
 
 </body>

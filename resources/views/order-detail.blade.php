@@ -3,174 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order Details</title>
-    <link rel="stylesheet" href="css/index.css">
-    <script src="js/index.js" defer></script>
+    <title>Order #{{ $order->id }} &ndash; Skyrose Atelier</title>
+    @include('partials.head')
+    <style>
+        .OrderDetailPage { max-width: 820px; margin: 60px auto; padding: 0 20px 60px; }
+        .OrderDetailPage h1 { font-size: 30px; font-weight: 700; color: #1a1a1a; margin-bottom: 8px; }
+        .BackLink { display: inline-block; margin-bottom: 28px; font-size: 14px; color: #666; text-decoration: none; }
+        .BackLink:hover { color: #111; }
+        .InfoCard { background: #f9f6f0; border: 1px solid #e8e0d0; border-radius: 8px; padding: 24px; margin-bottom: 24px; }
+        .InfoGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .InfoLabel { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: #888; margin-bottom: 4px; }
+        .InfoValue { font-size: 15px; color: #1a1a1a; font-weight: 500; }
+        .StatusBadge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 700; }
+        .StatusBadge.pending    { background: #fff3cd; color: #856404; }
+        .StatusBadge.processing { background: #cfe2ff; color: #084298; }
+        .StatusBadge.shipped    { background: #d1ecf1; color: #0c5460; }
+        .StatusBadge.completed  { background: #d4edda; color: #155724; }
+        .StatusBadge.cancelled  { background: #f8d7da; color: #721c24; }
+        .StatusBadge.refunded   { background: #e2d9f3; color: #432874; }
+        .ItemsTable { width: 100%; border-collapse: collapse; margin-bottom: 24px; }
+        .ItemsTable th { padding: 12px 16px; text-align: left; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #555; background: #f5f0e8; border-bottom: 2px solid #e8e0d0; }
+        .ItemsTable td { padding: 14px 16px; border-bottom: 1px solid #eee; font-size: 14px; color: #333; }
+        .ItemsTable tr:last-child td { border-bottom: none; }
+        .SummaryBox { background: #f9f6f0; border: 1px solid #e8e0d0; border-radius: 8px; padding: 20px 24px; margin-bottom: 24px; text-align: right; }
+        .SummaryBox .TotalLabel { font-size: 14px; color: #555; margin-bottom: 6px; }
+        .SummaryBox .TotalAmount { font-size: 22px; font-weight: 700; color: #1a1a1a; }
+        .ActionRow { display: flex; gap: 12px; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+        .ActionBtn { display: inline-block; padding: 10px 22px; font-size: 14px; font-weight: 600; border-radius: 4px; cursor: pointer; text-decoration: none; border: none; transition: opacity 0.2s; }
+        .ActionBtn:hover { opacity: 0.8; }
+        .ActionBtn.back     { background: #777; color: white; }
+        .ActionBtn.shop     { background: #111; color: white; }
+        .ActionBtn.cancel   { background: #dc3545; color: white; }
+        .Toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: #111; color: #fff; padding: 12px 24px; border-radius: 4px; font-size: 14px; z-index: 9999; opacity: 0; transition: opacity 0.3s; pointer-events: none; }
+        @media (max-width: 600px) { .InfoGrid { grid-template-columns: 1fr; } .ActionRow { flex-direction: column; } }
+    </style>
 </head>
 <body>
     <div class="page-wrapper">
         <div class="PageContent">
-            <!-- Top Navigation -->
-            <div class="TopNav">
-                <a href="{{ url('/') }}">Home</a>
-                <a href="{{ url('/about') }}">About</a>
-                <a href="{{ route('products.index') }}">Products</a>
-                <a href="{{ url('/contact') }}">Contact</a>
-                <div class="IconNav"></div>
-            </div>
+            @include('partials.nav')
 
-            <!-- Page Title -->
-            <h1 style="text-align: center; margin: 30px 0;">Order #{{ $order->id }}</h1>
+            <div class="OrderDetailPage">
+                <a href="{{ route('orders.index') }}" class="BackLink">&larr; Back to My Orders</a>
+                <h1>Order #{{ $order->id }}</h1>
 
-            <!-- Order Details Section -->
-            <div style="max-width: 800px; margin: 0 auto; padding: 20px;">
-                
-                <!-- Order Information -->
-                <div style="background: #f9f9f9; padding: 20px; border-radius: 5px; margin-bottom: 30px;">
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                {{-- Order meta --}}
+                <div class="InfoCard">
+                    <div class="InfoGrid">
                         <div>
-                            <p style="color: #666; font-size: 12px; text-transform: uppercase; margin: 0;">Order Date</p>
-                            <p style="font-size: 18px; font-weight: bold; margin: 5px 0;">{{ $order->created_at->format('M d, Y g:i A') }}</p>
+                            <p class="InfoLabel">Order Date</p>
+                            <p class="InfoValue">{{ $order->created_at->format('d M Y, g:i A') }}</p>
                         </div>
                         <div>
-                            <p style="color: #666; font-size: 12px; text-transform: uppercase; margin: 0;">Status</p>
-                            <p style="font-size: 18px; font-weight: bold; margin: 5px 0;">
-                                <span style="padding: 5px 12px; border-radius: 20px; 
-                                    @if($order->status === 'pending') background: #fff3cd; color: #856404;
-                                    @elseif($order->status === 'completed') background: #d4edda; color: #155724;
-                                    @elseif($order->status === 'cancelled') background: #f8d7da; color: #721c24;
-                                    @else background: #d1ecf1; color: #0c5460;
-                                    @endif
-                                    ">
-                                    {{ ucfirst($order->status) }}
-                                </span>
+                            <p class="InfoLabel">Status</p>
+                            <p class="InfoValue">
+                                <span class="StatusBadge {{ $order->status }}">{{ ucfirst($order->status) }}</span>
                             </p>
                         </div>
-                    </div>
-                    
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
                         <div>
-                            <p style="color: #666; font-size: 12px; text-transform: uppercase; margin: 0;">Payment Method</p>
-                            <p style="font-size: 14px; margin: 5px 0;">{{ ucwords(str_replace('_', ' ', $order->payment_method)) }}</p>
+                            <p class="InfoLabel">Payment Method</p>
+                            <p class="InfoValue">{{ ucwords(str_replace('_', ' ', $order->payment_method ?? 'N/A')) }}</p>
                         </div>
                         <div>
-                            <p style="color: #666; font-size: 12px; text-transform: uppercase; margin: 0;">Shipping Address</p>
-                            <p style="font-size: 14px; margin: 5px 0;">{{ $order->shipping_address }}</p>
+                            <p class="InfoLabel">Shipping Address</p>
+                            <p class="InfoValue">{{ $order->shipping_address ?? 'N/A' }}</p>
                         </div>
+                        @if($isAdmin ?? false)
+                        <div>
+                            <p class="InfoLabel">Customer</p>
+                            <p class="InfoValue">{{ $order->user->name ?? 'Unknown' }}<br><span style="font-size:13px;color:#888;">{{ $order->user->email ?? '' }}</span></p>
+                        </div>
+                        @endif
                     </div>
                 </div>
 
-                <!-- Order Items -->
-                <div style="margin-bottom: 30px;">
-                    <h2 style="margin-top: 0;">Order Items</h2>
-                    <table style="width: 100%; border-collapse: collapse;">
-                        <thead>
-                            <tr style="background: #f5f5f5; border-bottom: 2px solid #ccc;">
-                                <th style="padding: 12px; text-align: left;">Product</th>
-                                <th style="padding: 12px; text-align: center;">Quantity</th>
-                                <th style="padding: 12px; text-align: right;">Price</th>
-                                <th style="padding: 12px; text-align: right;">Subtotal</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($order->orderItems as $item)
-                                <tr style="border-bottom: 1px solid #eee;">
-                                    <td style="padding: 12px;">{{ $item->product->name }}</td>
-                                    <td style="padding: 12px; text-align: center;">{{ $item->quantity }}</td>
-                                    <td style="padding: 12px; text-align: right;">£{{ number_format($item->unit_price, 2) }}</td>
-                                    <td style="padding: 12px; text-align: right; font-weight: bold;">£{{ number_format($item->unit_price * $item->quantity, 2) }}</td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                {{-- Items --}}
+                <table class="ItemsTable">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th style="text-align:center;">Qty</th>
+                            <th style="text-align:right;">Unit Price</th>
+                            <th style="text-align:right;">Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($order->orderItems as $item)
+                        <tr>
+                            <td>{{ $item->product->name ?? 'Product removed' }}</td>
+                            <td style="text-align:center;">{{ $item->quantity }}</td>
+                            <td style="text-align:right;">&pound;{{ number_format($item->unit_price, 2) }}</td>
+                            <td style="text-align:right; font-weight:700;">&pound;{{ number_format($item->unit_price * $item->quantity, 2) }}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+
+                {{-- Total --}}
+                <div class="SummaryBox">
+                    <p class="TotalLabel">Order Total</p>
+                    <p class="TotalAmount">&pound;{{ number_format($order->total_amount, 2) }}</p>
                 </div>
 
-                <!-- Order Total -->
-                <div style="background: #f9f9f9; padding: 20px; border-radius: 5px; margin-bottom: 30px; text-align: right;">
-                    <h3 style="margin: 0 0 15px 0;">Order Summary</h3>
-                    <p style="font-size: 18px; font-weight: bold; margin: 10px 0;">Total: £{{ number_format($order->total_amount, 2) }}</p>
-                </div>
-
-                <!-- Order Notes -->
                 @if($order->notes)
-                    <div style="background: #f9f9f9; padding: 20px; border-radius: 5px; margin-bottom: 30px;">
-                        <h3 style="margin-top: 0;">Order Notes</h3>
-                        <p>{{ $order->notes }}</p>
-                    </div>
+                <div class="InfoCard" style="margin-bottom:24px;">
+                    <p class="InfoLabel">Order Notes</p>
+                    <p style="margin:6px 0 0;font-size:14px;color:#333;">{{ $order->notes }}</p>
+                </div>
                 @endif
 
-                <!-- Action Buttons -->
-                <div style="display: flex; gap: 10px; justify-content: space-between;">
-                    <a href="{{ route('orders.index') }}" style="padding: 10px 20px; background: #666; color: white; text-decoration: none; border-radius: 3px;">Back to Orders</a>
-                    @if($order->status === 'pending')
-                        <button onclick="cancelOrder({{ $order->id }})" style="padding: 10px 20px; background: #dc3545; color: white; border: none; border-radius: 3px; cursor: pointer;">Cancel Order</button>
-                    @endif
-                    <a href="{{ route('products.index') }}" style="padding: 10px 20px; background: #333; color: white; text-decoration: none; border-radius: 3px;">Continue Shopping</a>
-                </div>
-            </div>
-
-            <!-- Featured Products Section -->
-            @if($products && $products->count() > 0)
-            <div style="margin-top: 50px; padding: 20px;">
-                <h2 style="text-align: center; margin-bottom: 30px;">Featured Products</h2>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
-                    @foreach($products as $product)
-                    <div style="border: 1px solid #ddd; border-radius: 5px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
-                        <img src="{{ $product->image_url }}" alt="{{ $product->name }}" style="width: 100%; height: 200px; object-fit: cover;">
-                        <div style="padding: 15px;">
-                            <h3 style="margin: 0 0 10px 0;">{{ $product->name }}</h3>
-                            <p style="color: #666; margin: 0 0 10px 0; font-size: 14px;">{{ substr($product->description, 0, 80) }}...</p>
-                            <div style="display: flex; justify-content: space-between; align-items: center;">
-                                <span style="font-size: 18px; font-weight: bold;">£{{ number_format($product->price, 2) }}</span>
-                                <span style="background: #f0f0f0; padding: 5px 10px; border-radius: 3px; font-size: 12px;">{{ $product->category }}</span>
-                            </div>
-                            <a href="{{ route('products.show', $product->id) }}" style="display: block; margin-top: 10px; padding: 8px; background: #333; color: white; text-decoration: none; border-radius: 3px; text-align: center;">View Product</a>
-                        </div>
+                {{-- Actions --}}
+                <div class="ActionRow">
+                    <a href="{{ route('orders.index') }}" class="ActionBtn back">My Orders</a>
+                    <div style="display:flex;gap:10px;">
+                        @if($order->status === 'pending' || $order->status === 'processing')
+                            <button onclick="cancelOrder({{ $order->id }})" class="ActionBtn cancel">Cancel Order</button>
+                        @endif
+                        <a href="{{ route('products.index') }}" class="ActionBtn shop">Continue Shopping</a>
                     </div>
-                    @endforeach
                 </div>
             </div>
-            @endif
-
-            <script>
-                function cancelOrder(orderId) {
-                    if (confirm('Are you sure you want to cancel this order?')) {
-                        fetch(`/orders/${orderId}/cancel`, {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                                'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                            }
-                        })
-                        .then(res => res.json())
-                        .then(data => {
-                            if (data.success) {
-                                alert('Order cancelled successfully');
-                                location.href = '{{ route("orders.index") }}';
-                            } else {
-                                alert('Error: ' + data.error);
-                            }
-                        })
-                        .catch(err => alert('An error occurred'));
-                    }
-                }
-            </script>
-
         </div>
 
-        <!-- Footer -->
-        <div id="site-footer">
-            <footer class="footer">
-                <div class="FooterIconsContainer">
-                    <img src="assets/images/FacebookIcon.png" class="FooterIcons" alt="facebook">
-                    <img src="assets/images/InstagramIcon.png" class="FooterIcons" alt="instagram">
-                    <img src="assets/images/YoutubeIcon.png" class="FooterIcons" alt="youtube">
-                </div>
-                <p class="ContactTitle">© 2025 Luxury Jewelry Store</p>
-            </footer>
-        </div>
+        @include('partials.footer')
     </div>
+
+    <div class="Toast" id="toast"></div>
+    <script>
+        function showToast(msg) {
+            const t = document.getElementById('toast');
+            t.textContent = msg; t.style.opacity = 1;
+            setTimeout(() => t.style.opacity = 0, 3000);
+        }
+        function cancelOrder(orderId) {
+            if (!confirm('Cancel this order?')) return;
+            fetch(`/orders/${orderId}/cancel`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content }
+            })
+            .then(r => r.json())
+            .then(data => {
+                if (data.success) { showToast('Order cancelled.'); setTimeout(() => location.href = '/orders', 1200); }
+                else showToast('Error: ' + (data.error || 'Could not cancel.'));
+            })
+            .catch(() => showToast('An error occurred.'));
+        }
+    </script>
 </body>
 </html>
-
-

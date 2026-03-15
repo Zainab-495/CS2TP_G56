@@ -30,6 +30,7 @@
         if (!iconNav) return;
         if (data.loggedIn) {
           iconNav.innerHTML = `<span style="margin-right:16px;color:#111;">Hello, ${escapeHtml(data.username)}</span>
+                               <a href="/profile" aria-label="My Profile" style="margin-right:10px"><img src="/images/ProfileIcon.png" alt="Profile" style="width:28px;height:28px;vertical-align:middle;"></a>
                                <a href="#" id="logoutBtn" style="margin-right:10px">Logout</a>
                                <a href="/cart"><img src="/images/CartIcon.png" alt="Cart"><span id="cart-count" style="display:inline-block;margin-left:6px;color:#111;">0</span></a>`;
           const lb = document.getElementById('logoutBtn');

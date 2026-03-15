@@ -1,5 +1,6 @@
-﻿<?php
+<?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
@@ -87,7 +88,7 @@ Route::post('/cart/place-order', [CartController::class, 'placeOrder'])->name('c
 | Checkout
 |-----------------------------------------------------------------------
 */
-Route::get('/checkout',  fn() => view('checkout'))->name('checkout.index');
+Route::get('/checkout',  [CheckoutController::class, 'index'])->name('checkout.index');
 Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkout.store');
 
 /*
@@ -95,9 +96,19 @@ Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkout.s
 | Orders
 |-----------------------------------------------------------------------
 */
-Route::get('/orders',              [OrderController::class, 'index'])->name('orders.index');
-Route::get('/orders/{id}',         [OrderController::class, 'show'])->name('orders.show');
-Route::post('/orders/{id}/cancel', [OrderController::class, 'cancel'])->name('orders.cancel');
+Route::get('/orders',               [OrderController::class, 'index'])->name('orders.index');
+Route::get('/orders/{id}',          [OrderController::class, 'show'])->name('orders.show');
+Route::post('/orders/{id}/cancel',  [OrderController::class, 'cancel'])->name('orders.cancel');
+Route::post('/orders/{id}/refund',  [OrderController::class, 'refund'])->name('orders.refund');
+
+/*
+|-----------------------------------------------------------------------
+| Admin
+|-----------------------------------------------------------------------
+*/
+Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
+    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+});
 
 /*
 |-----------------------------------------------------------------------

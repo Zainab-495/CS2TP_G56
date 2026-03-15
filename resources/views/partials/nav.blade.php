@@ -11,7 +11,11 @@
             <img src="{{ asset('images/SearchIcon.png') }}" alt="Search">
         </a>
         <div id="auth-buttons">
-            <a href="/login" aria-label="Login"><img src="{{ asset('images/ProfileIcon.png') }}" alt="Login"></a>
+            @auth
+                <a href="{{ route('profile.edit') }}" aria-label="My Profile"><img src="{{ asset('images/ProfileIcon.png') }}" alt="Profile"></a>
+            @else
+                <a href="/login" aria-label="Login"><img src="{{ asset('images/ProfileIcon.png') }}" alt="Login"></a>
+            @endauth
             <a href="/cart" aria-label="Cart">
                 <img src="{{ asset('images/CartIcon.png') }}" alt="Cart">
                 <span id="cart-count" style="display:inline-block;margin-left:6px;color:#111;">0</span>

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 namespace App\Http\Controllers;
 
@@ -34,12 +34,13 @@ class CartController extends Controller
             $cart[$key]['quantity'] += (int) $request->quantity;
         } else {
             $cart[$key] = [
-                'cart_id'  => uniqid(),
-                'name'     => $request->productName,
-                'price'    => (float) $request->price,
-                'quantity' => (int) $request->quantity,
-                'image'    => '/images/' . strtolower(str_replace(' ', '-', $request->productName)) . '.jpg',
-                'subtotal' => (float) $request->price * $request->quantity,
+                'cart_id'    => uniqid(),
+                'product_id' => $request->input('productId') ? (int) $request->productId : null,
+                'name'       => $request->productName,
+                'price'      => (float) $request->price,
+                'quantity'   => (int) $request->quantity,
+                'image'      => '/images/' . strtolower(str_replace(' ', '-', $request->productName)) . '.jpg',
+                'subtotal'   => (float) $request->price * $request->quantity,
             ];
         }
 

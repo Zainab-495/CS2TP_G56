@@ -30,10 +30,14 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
+            $redirect = Auth::user()->is_admin
+                ? route('admin.dashboard')
+                : $request->input('redirect', route('products.index'));
+
             return response()->json([
                 'success' => true,
                 'message' => 'Logged in successfully',
-                'redirect' => $request->input('redirect', route('products.index')),
+                'redirect' => $redirect,
             ]);
         }
 
@@ -100,6 +104,7 @@ class AuthController extends Controller
             return response()->json([
                 'loggedIn' => true,
                 'username' => Auth::user()->name,
+                'is_admin' => (bool) Auth::user()->is_admin,
             ]);
         }
         return response()->json(['loggedIn' => false]);
