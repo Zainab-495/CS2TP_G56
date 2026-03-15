@@ -1,307 +1,197 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Seraphine Atelier | Luxury Jewellery</title>
-
-<link rel="stylesheet" href="{{ asset('assets/style.css') }}">
-
-<style>
-
-/* ======== Zak Styling ======== */
-
-body {
-  margin: 0;
-  font-family: "Inter", sans-serif;
-  background: #ffffff;
-  color: #222222;
-  line-height: 1.7;
-}
-
-h1,h2,h3 {
-  font-family: "Playfair Display", serif;
-  margin: 0;
-}
-
-.container{
-  max-width:1200px;
-  margin:auto;
-}
-
-.section-title{
-  font-size:2.4rem;
-  text-align:center;
-  margin-bottom:10px;
-}
-
-.section-subtitle{
-  text-align:center;
-  font-size:1rem;
-  max-width:600px;
-  margin:0 auto 30px;
-  color:#555;
-}
-
-/* ======== Navbar ======== */
-
-.navbar{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:22px 60px;
-  border-bottom:1px solid #eee;
-  position:sticky;
-  top:0;
-  background:#ffffff;
-  z-index:1000;
-}
-
-.nav-links{
-  list-style:none;
-  display:flex;
-  gap:30px;
-}
-
-.nav-links a{
-  text-decoration:none;
-  color:#333;
-  font-weight:500;
-  font-size:0.95rem;
-}
-
-.nav-links a:hover{
-  color:#b89b5e;
-}
-
-.logo{
-  font-family:'Playfair Display', serif;
-  font-size:1.6rem;
-  font-weight:700;
-}
-
-/* ======== Hero ======== */
-
-.hero{
-  text-align:center;
-  padding:130px 20px;
-  background:#faf9f5;
-}
-
-.hero-title{
-  font-size:3rem;
-  margin-bottom:15px;
-}
-
-.hero-subtitle{
-  font-size:1.1rem;
-  color:#555;
-  max-width:600px;
-  margin:0 auto 30px;
-}
-
-.btn-primary{
-  background:#b89b5e;
-  color:white;
-  padding:14px 34px;
-  border-radius:4px;
-  text-decoration:none;
-}
-
-.btn-outline{
-  border:1px solid #b89b5e;
-  padding:13px 32px;
-  border-radius:4px;
-  color:#b89b5e;
-  text-decoration:none;
-}
-
-/* ======== Products ======== */
-
-.product-list-section{
-  padding:60px 60px;
-}
-
-.product-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:30px;
-  margin-top:40px;
-}
-
-.product-card{
-  display:block;
-  background:white;
-  padding:20px;
-  border-radius:6px;
-  text-align:center;
-  border:1px solid #eee;
-  text-decoration:none;
-  color:#222;
-}
-
-.product-card img{
-  width:100%;
-  border-radius:6px;
-  margin-bottom:15px;
-}
-
-.product-card h3{
-  font-family:'Playfair Display', serif;
-  font-size:1.2rem;
-}
-
-.product-price{
-  color:#b89b5e;
-  font-weight:500;
-}
-
-/* ======== Story ======== */
-
-.story-section{
-  padding:60px;
-}
-
-/* ======== Footer ======== */
-
-.footer{
-  text-align:center;
-  padding:25px;
-  font-size:0.9rem;
-  color:#666;
-  border-top:1px solid #eee;
-}
-
-@media(max-width:768px){
-
-.navbar{
-  padding:18px 25px;
-}
-
-.hero-title{
-  font-size:2.2rem;
-}
-
-.section-title{
-  font-size:1.9rem;
-}
-
-}
-
-</style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Skyrose Atelier</title>
+    @include('partials.head')
+    <style>
+        .Hero {
+            background: linear-gradient(135deg, rgba(200, 195, 137, 0.08) 0%, rgba(212, 175, 55, 0.05) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .Hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -100px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .HeroInner { position: relative; z-index: 1; }
+        .HeroCopy h1 {
+            font-size: 56px;
+            font-weight: 700;
+            line-height: 1.1;
+            color: #1a1a1a;
+            margin: 0 0 20px 0;
+            letter-spacing: -0.5px;
+        }
+        .HeroCopy p {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #555;
+            max-width: 550px;
+            margin-bottom: 35px;
+        }
+        .HeroCTA { display: flex; gap: 16px; align-items: center; }
+        .BtnPrimary {
+            background: #111;
+            color: white;
+            padding: 16px 40px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        .BtnPrimary:hover {
+            background: #333;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        .BtnGhost {
+            background: transparent;
+            color: #111;
+            padding: 16px 40px;
+            border: 2px solid #111;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .BtnGhost:hover { background: #111; color: white; }
+        .HeroVisual {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+            transition: transform 0.5s ease;
+        }
+        .HeroVisual:hover { transform: translateY(-8px); }
+        .HeroVisual img { width: 100%; height: auto; display: block; }
+        .FeaturedCrafts { background: #fff; padding: 80px 24px; margin-top: 0; }
+        .FeaturedCraftsTitle {
+            font-size: 36px;
+            font-weight: 700;
+            color: #1a1a1a;
+            text-align: center;
+            margin: 0 0 60px 0;
+            letter-spacing: -0.5px;
+        }
+        .FeaturedCraftsImgs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .FeaturedCraftsImgs > div {
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .FeaturedCraftsImgs > div:hover { transform: translateY(-8px); }
+        .FeaturedCraftsImgs > div h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #111;
+            margin-top: 16px;
+            margin-bottom: 0;
+        }
+        .FeaturedItem {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            object-fit: cover;
+            aspect-ratio: 1;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        .FeaturedItem:hover {
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+            transform: scale(1.02);
+        }
+        @media (max-width: 900px) {
+            .HeroInner { flex-direction: column; padding: 60px 20px; }
+            .HeroVisual { max-width: 100%; width: 100%; }
+            .HeroCopy h1 { font-size: 40px; }
+            .FeaturedCraftsImgs { grid-template-columns: 1fr; gap: 30px; }
+            .FeaturedCrafts { padding: 60px 20px; }
+        }
+        @media (max-width: 600px) {
+            .HeroCopy h1 { font-size: 32px; }
+            .HeroCopy p { font-size: 16px; }
+            .HeroCTA { flex-direction: column; width: 100%; }
+            .BtnPrimary, .BtnGhost { width: 100%; text-align: center; }
+        }
+    </style>
 </head>
-
 <body>
+    <div class="page-wrapper">
+        <div class="PageContent">
+            <header class="TopNav" role="navigation" aria-label="Main navigation">
+                <a class="logo-link" href="/" aria-label="Skyrose Atelier home">
+                    <img class="header-logo home-logo" src="{{ asset('images/logo Skyrose.jpg') }}" alt="Skyrose Atelier logo">
+                </a>
+                <a href="/">Home</a>
+                <a href="/about">About</a>
+                <a href="/products">Products</a>
+                <a href="/contact">Contact</a>
+                <div class="IconNav" id="auth-buttons">
+                    <a href="/login" aria-label="Login"><img src="{{ asset('images/ProfileIcon.png') }}" alt="Profile"></a>
+                    <a href="/cart" aria-label="Cart">
+                        <img src="{{ asset('images/CartIcon.png') }}" alt="Cart">
+                        <span id="cart-count" style="display:inline-block;margin-left:6px;color:#111;">0</span>
+                    </a>
+                </div>
+            </header>
 
-<header class="navbar">
+            <main>
+                <section class="Hero" aria-label="Hero">
+                    <div class="HeroInner">
+                        <div class="HeroCopy">
+                            <h1 class="HeroTitle">Timeless Jewellery, Crafted to Last</h1>
+                            <p class="HeroSubtitle">Discover handcrafted pieces made with ethically sourced materials. From everyday elegance to statement heirlooms — find something to cherish.</p>
+                            <div class="HeroCTA">
+                                <a href="/products" style="text-decoration:none;"><button class="BtnPrimary">Shop Collection</button></a>
+                                <a href="/about" style="text-decoration:none;"><button class="BtnGhost">Our Story</button></a>
+                            </div>
+                        </div>
+                        <div class="HeroVisual">
+                            <img src="{{ asset('images/LandingPageImage.png') }}" alt="Luxury jewelry collection">
+                        </div>
+                    </div>
+                </section>
 
-<div class="logo">Seraphine Atelier</div>
+                <section class="FeaturedCrafts" aria-label="Featured crafts">
+                    <h2 class="FeaturedCraftsTitle">Featured Crafts</h2>
+                    <div class="FeaturedCraftsImgs">
+                        <div>
+                            <img class="FeaturedItem" src="{{ asset('images/BleedingHeartBracelet.png') }}" alt="Bleeding Heart Bracelet">
+                            <h3>Bleeding Heart Bracelet</h3>
+                        </div>
+                        <div>
+                            <img class="FeaturedItem" src="{{ asset('images/ButaRing.png') }}" alt="Buta Ring">
+                            <h3>Buta Ring</h3>
+                        </div>
+                        <div>
+                            <img class="FeaturedItem" src="{{ asset('images/ThreadbareEarrings.png') }}" alt="Threadbare Earrings">
+                            <h3>Threadbare Earrings</h3>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
 
-<nav>
-<ul class="nav-links">
-<li><a href="/">Home</a></li>
-<li><a href="/products">Shop</a></li>
-<li><a href="/products">Categories</a></li>
-<li><a href="/about">About</a></li>
-<li><a href="/contact">Contact</a></li>
-</ul>
-</nav>
-
-</header>
-
-<!-- HERO -->
-
-<section class="hero">
-
-<div class="container">
-
-<h1 class="hero-title">Discover Timeless Elegance</h1>
-
-<p class="hero-subtitle">
-Luxury handcrafted jewellery for every occasion.
-</p>
-
-<a href="/products" class="btn-primary">Shop Now</a>
-<a href="/products" class="btn-outline">Explore Collections</a>
-
-</div>
-
-</section>
-
-<!-- FEATURED PRODUCTS -->
-
-<section class="product-list-section">
-
-<div class="container">
-
-<h2 class="section-title">Featured Products</h2>
-
-<div class="product-grid">
-
-<a href="/product" class="product-card">
-
-<img src="{{ asset('assets/images/elegant-gold-ring.jpg') }}" alt="Elegant Gold Ring">
-
-<h3>Elegant Gold Ring</h3>
-
-<p class="product-price">$249</p>
-
-</a>
-
-<a href="/product" class="product-card">
-
-<img src="{{ asset('assets/images/silver-necklace.jpg') }}" alt="Silver Necklace">
-
-<h3>Silver Necklace</h3>
-
-<p class="product-price">$199</p>
-
-</a>
-
-<a href="/product" class="product-card">
-
-<img src="{{ asset('assets/images/diamond-earrings.jpg') }}" alt="Diamond Earrings">
-
-<h3>Diamond Earrings</h3>
-
-<p class="product-price">$349</p>
-
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- STORY -->
-
-<section class="story-section">
-
-<div class="container">
-
-<h2 class="section-title">Our Story</h2>
-
-<p class="section-subtitle">
-At Seraphine Atelier we craft timeless jewellery that celebrates elegance,
-artistry and individuality. Every piece blends classic craftsmanship with
-modern inspiration.
-</p>
-
-</div>
-
-</section>
-
-<footer class="footer">
-
-<div class="container">
-
-<p>© 2024 Seraphine Atelier • All Rights Reserved</p>
-
-</div>
-
-</footer>
-
+        @include('partials.footer')
+    </div>
 </body>
 </html>
+
+

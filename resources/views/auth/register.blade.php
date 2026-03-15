@@ -1,52 +1,44 @@
-<x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
-        @csrf
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register &ndash; Skyrose Atelier</title>
+    @include('partials.head')
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="PageContent">
+            @include('partials.nav')
 
-        <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+            <div class="AuthPage">
+                <div class="AuthCard">
+                    <h1 class="AuthTitle">Register</h1>
+                    <form id="register-form" class="AuthForm">
+                        <label for="r-username">Username</label>
+                        <input id="r-username" name="username" type="text" required>
+
+                        <label for="r-email">Email</label>
+                        <input id="r-email" name="email" type="email" required>
+
+                        <label for="r-fullName">Full Name (Optional)</label>
+                        <input id="r-fullName" name="fullName" type="text">
+
+                        <label for="r-password">Password</label>
+                        <input id="r-password" name="password" type="password" required>
+
+                        <button type="submit" class="AuthButton">Register</button>
+                        <p class="AuthHelp">Already have an account? <a href="/login">Login</a></p>
+                    </form>
+                    <div id="error-msg" class="AuthError" aria-live="polite"></div>
+                </div>
+            </div>
         </div>
 
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
+        @include('partials.footer')
+    </div>
+    <script src="{{ asset('js/register.js') }}" defer></script>
+</body>
+</html>
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
-
-            <x-primary-button class="ms-4">
-                {{ __('Register') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>

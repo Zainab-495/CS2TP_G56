@@ -148,7 +148,7 @@
     </style>
 
     <header class="navbar">
-        <div class="logo">Seraphine Atelier</div>
+        <div class="logo">Skyrose Atelier</div>
         <nav>
             <ul class="nav-links">
                 <li><a class="active" href="/">Home</a></li>
@@ -183,3 +183,5 @@
         </div>
     </div>
 </x-app-layout>
+
+

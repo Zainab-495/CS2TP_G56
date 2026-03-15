@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seraphine Atelier</title>
+    <title>Skyrose Atelier</title>
     <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -394,7 +394,7 @@ h3 {
 }
 <!-- Zak NAVbar -->
 <header class="navbar">
-    <div class="logo">Seraphine Atelier</div>
+    <div class="logo">Skyrose Atelier</div>
     <nav>
         <ul class="nav-links">
             <li><a class="active" href="/">Home</a></li>
@@ -451,7 +451,7 @@ h3 {
     <div class="container">
         <h2>Our Story</h2>
         <p>
-            At Seraphine Atelier, we craft timeless jewelry that celebrates elegance, artistry, and individuality. 
+            At Skyrose Atelier, we craft timeless jewelry that celebrates elegance, artistry, and individuality. 
             Founded with a passion for design and a commitment to quality, our pieces are carefully handcrafted to bring a touch of sophistication to everyday life.
              Every creation tells a story, blending classic techniques with modern inspiration,
               ensuring that each item is as unique as the person who wears it.
@@ -462,9 +462,11 @@ h3 {
 <!-- ZAK EDIT FOOTER -->
 <footer class="footer">
     <div class="container">
-        <p>© 2024 Seraphine Atelier • All Rights Reserved</p>
+        <p>© 2024 Skyrose Atelier • All Rights Reserved</p>
     </div>
 </footer>
 
 </body>
 </html>
+
+

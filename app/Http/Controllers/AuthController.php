@@ -90,4 +90,28 @@ class AuthController extends Controller
 
         return redirect('/');
     }
+
+    /**
+     * Return auth status as JSON (for JS frontend check-auth).
+     */
+    public function status()
+    {
+        if (Auth::check()) {
+            return response()->json([
+                'loggedIn' => true,
+                'username' => Auth::user()->name,
+            ]);
+        }
+        return response()->json(['loggedIn' => false]);
+    }
+
+    /**
+     * Return session/cart init data (for JS frontend init-session).
+     */
+    public function sessionInit()
+    {
+        $cart = session('cart', []);
+        $cartCount = array_sum(array_column($cart, 'quantity'));
+        return response()->json(['success' => true, 'cartCount' => $cartCount]);
+    }
 }

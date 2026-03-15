@@ -1,121 +1,111 @@
-<?php
+﻿<?php
 
 namespace App\Http\Controllers;
 
-use App\Models\Cart;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
-    /**
-     * Display the cart page with all items.
-     */
     public function index()
     {
-        // For now, get all products (in a real app, you'd filter by authenticated user)
-        // If user is authenticated, get their specific cart items
-        $cartItems = [];
-        
-        if (auth()->check()) {
-            $cartItems = Cart::where('user_id', auth()->id())
-                ->with('product')
-                ->get();
-        }
-
-        return view('cart', ['cartItems' => $cartItems]);
+        return view('cart');
     }
 
-    /**
-     * Add product to cart.
-     */
+    public function data()
+    {
+        $cart = session('cart', []);
+        $items = array_values($cart);
+        $total = array_sum(array_map(fn($i) => $i['price'] * $i['quantity'], $items));
+        return response()->json(['items' => $items, 'total' => $total]);
+    }
+
     public function add(Request $request)
     {
         $request->validate([
-            'product_id' => 'required|exists:products,id',
-            'quantity' => 'required|integer|min:1',
+            'productName' => 'required|string|max:255',
+            'quantity'    => 'required|integer|min:1',
+            'price'       => 'required|numeric|min:0',
         ]);
 
-        if (!auth()->check()) {
-            return response()->json(['error' => 'Please log in first'], 401);
-        }
+        $cart = session('cart', []);
+        $key  = $request->productName;
 
-        $cartItem = Cart::where('user_id', auth()->id())
-            ->where('product_id', $request->product_id)
-            ->first();
-
-        if ($cartItem) {
-            $cartItem->increment('quantity', $request->quantity);
+        if (isset($cart[$key])) {
+            $cart[$key]['quantity'] += (int) $request->quantity;
         } else {
-            Cart::create([
-                'user_id' => auth()->id(),
-                'product_id' => $request->product_id,
-                'quantity' => $request->quantity,
-            ]);
+            $cart[$key] = [
+                'cart_id'  => uniqid(),
+                'name'     => $request->productName,
+                'price'    => (float) $request->price,
+                'quantity' => (int) $request->quantity,
+                'image'    => '/images/' . strtolower(str_replace(' ', '-', $request->productName)) . '.jpg',
+                'subtotal' => (float) $request->price * $request->quantity,
+            ];
         }
 
-        return response()->json(['success' => true]);
+        foreach ($cart as &$item) {
+            $item['subtotal'] = $item['price'] * $item['quantity'];
+        }
+
+        session(['cart' => $cart]);
+        $cartCount = array_sum(array_column($cart, 'quantity'));
+
+        return response()->json(['success' => true, 'cartCount' => $cartCount]);
     }
 
-    /**
-     * Update cart item quantity.
-     */
     public function update(Request $request)
     {
         $request->validate([
-            'product_id' => 'required|exists:products,id',
-            'quantity' => 'required|integer|min:0',
+            'index'    => 'required|integer|min:0',
+            'quantity' => 'required|integer|min:1',
         ]);
 
-        if (!auth()->check()) {
-            return response()->json(['error' => 'Please log in first'], 401);
+        $cart = session('cart', []);
+        $keys = array_keys($cart);
+
+        if (!isset($keys[$request->index])) {
+            return response()->json(['error' => 'Item not found'], 404);
         }
 
-        $cartItem = Cart::where('user_id', auth()->id())
-            ->where('product_id', $request->product_id)
-            ->first();
+        $key = $keys[$request->index];
+        $cart[$key]['quantity'] = (int) $request->quantity;
+        $cart[$key]['subtotal'] = $cart[$key]['price'] * $request->quantity;
 
-        if ($cartItem) {
-            if ($request->quantity > 0) {
-                $cartItem->update(['quantity' => $request->quantity]);
-            } else {
-                $cartItem->delete();
-            }
-        }
-
+        session(['cart' => $cart]);
         return response()->json(['success' => true]);
     }
 
-    /**
-     * Remove item from cart.
-     */
     public function remove(Request $request)
     {
-        $request->validate([
-            'product_id' => 'required|exists:products,id',
-        ]);
+        $cart = session('cart', []);
+        $keys = array_keys($cart);
 
-        if (!auth()->check()) {
-            return response()->json(['error' => 'Please log in first'], 401);
+        $index  = $request->input('index');
+        $cartId = $request->input('cartId');
+
+        if ($index !== null && isset($keys[(int)$index])) {
+            unset($cart[$keys[(int)$index]]);
+        } elseif ($cartId) {
+            foreach ($cart as $key => $item) {
+                if ($item['cart_id'] === $cartId) { unset($cart[$key]); break; }
+            }
+        } else {
+            return response()->json(['error' => 'Item not found'], 404);
         }
 
-        Cart::where('user_id', auth()->id())
-            ->where('product_id', $request->product_id)
-            ->delete();
-
+        session(['cart' => $cart]);
         return response()->json(['success' => true]);
     }
 
-    /**
-     * Clear all items from cart.
-     */
     public function clear()
     {
-        if (!auth()->check()) {
-            return response()->json(['error' => 'Please log in first'], 401);
-        }
-
-        Cart::where('user_id', auth()->id())->delete();
-
+        session()->forget('cart');
         return response()->json(['success' => true]);
+    }
+
+    public function placeOrder()
+    {
+        session()->forget('cart');
+        return response()->json(['success' => true, 'order_id' => time()]);
     }
 }
