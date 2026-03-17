@@ -24,7 +24,7 @@
                      <!-- login title -->
         <h1 class="AuthTitle">Login</h1>
         <!-- login form -->
-        <form action="{{ route('login.post') }}" method="POST" class="AuthForm" id="login-form">
+        <form action="{{ route('login-custom.post') }}" method="POST" class="AuthForm" id="login-form">
             @csrf
             <!-- email input -->
           <label for="email">Email</label>
@@ -79,7 +79,7 @@
             const formData = new FormData(e.target);
             
             /* send login details to backend */
-            fetch('{{ route("login.post") }}', {
+            fetch('{{ route("login-custom.post") }}', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
