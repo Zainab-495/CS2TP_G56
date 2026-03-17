@@ -79,7 +79,7 @@
                                     @if($isAdmin)
                                         <td style="font-size:13px;">{{ $order->user->name ?? 'Unknown' }}<br><span style="color:#999;">{{ $order->user->email ?? '' }}</span></td>
                                     @endif
-                                    <td style="text-align:center;">{{ $order->orderItems->count() }}</td>
+                                    <td style="text-align:center;">{{ $order->items->count() }}</td>
                                     <td style="text-align:right;" class="OrderAmount">&pound;{{ number_format($order->total_amount, 2) }}</td>
                                     <td style="text-align:center;">
                                         <span class="StatusBadge {{ $order->status }}">{{ ucfirst($order->status) }}</span>

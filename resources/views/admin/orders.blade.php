@@ -109,7 +109,7 @@
                                     <td>{{ $order->created_at->format('d M Y') }}</td>
                                     <td style="font-weight:600;">{{ $order->user->name ?? 'Unknown' }}</td>
                                     <td style="font-size:13px;color:#888;">{{ $order->user->email ?? '—' }}</td>
-                                    <td style="text-align:center;">{{ $order->orderItems->count() }}</td>
+                                    <td style="text-align:center;">{{ $order->items->count() }}</td>
                                     <td style="text-align:right;font-weight:700;">&pound;{{ number_format($order->total_amount, 2) }}</td>
                                     <td><span class="status-badge status-{{ $order->status }}">{{ ucfirst($order->status) }}</span></td>
                                     <td>

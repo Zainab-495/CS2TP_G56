@@ -100,7 +100,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($order->orderItems as $item)
+                        @foreach($order->items as $item)
                         <tr>
                             <td>{{ $item->product->name ?? 'Product removed' }}</td>
                             <td style="text-align:center;">{{ $item->quantity }}</td>

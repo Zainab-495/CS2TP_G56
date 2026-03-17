@@ -17,7 +17,7 @@ class OrderController extends Controller
 
         $isAdmin = auth()->user()->is_admin;
 
-        $query = Order::with('orderItems.product', 'user')
+        $query = Order::with('items.product', 'user')
             ->orderBy('created_at', 'desc');
 
         if (!$isAdmin) {
@@ -38,7 +38,7 @@ class OrderController extends Controller
             return redirect()->route('login')->with('message', 'Please log in to view this order');
         }
 
-        $query = Order::with('orderItems.product', 'user')->where('id', $id);
+        $query = Order::with('items.product', 'user')->where('id', $id);
 
         if (!auth()->user()->is_admin) {
             $query->where('user_id', auth()->id());
