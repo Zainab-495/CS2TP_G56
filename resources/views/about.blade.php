@@ -90,7 +90,7 @@
                 <div class="PassionBox">
                     <h2 class="PassionTitle">Our Mission</h2>
                     <p class="PassionBoxText">
-                        To create timeless jewelry that celebrates life's special moments â€” designed
+                        To create timeless jewelry that celebrates life's special moments — designed
                         to be cherished for generations.
                     </p>
                 </div>

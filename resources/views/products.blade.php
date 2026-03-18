@@ -79,14 +79,7 @@
 
 <!-- Category links -->
 <section class="CategoryLinks" aria-label="Shop by category">
-    <h2 class="SectionTitle">Shop By Category</h2>
-    <div class="CategoryGrid">
-        <a class="CategoryCard" href="/category/rings">Rings</a>
-        <a class="CategoryCard" href="/category/earrings">Earrings</a>
-        <a class="CategoryCard" href="/category/bracelets">Bracelets</a>
-        <a class="CategoryCard" href="/category/necklaces">Necklaces</a>
-        <a class="CategoryCard" href="/category/watches">Watches</a>
-    </div>
+    @include('partials.category-dropdown', ['active' => ''])
 </section>
 
 <!-- Products Grid (uses CSS in css/index.css) -->
@@ -656,7 +649,7 @@ function showProductDetail() {
                     addToCartQuick(event, productName, qty);
                 } else {
                     // Fallback if function not available
-                    alert('Added ' + qty + ' Ãƒâ€” ' + productName + ' to cart!');
+                    alert('Added ' + qty + ' × ' + productName + ' to cart!');
                 }
             };
             

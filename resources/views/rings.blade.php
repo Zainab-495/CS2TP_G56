@@ -4,29 +4,11 @@
   <meta charset="utf-8">
     <meta name="csrf-token" content="{{ csrf_token() }}">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Rings â€” Skyrose Atelier</title>
+  <title>Rings &ndash; Skyrose Atelier</title>
   <link rel="stylesheet" href="{{ asset('css/index.css') }}">
 </head>
 <body>
   <div class="page-wrapper">
-    <header class="TopNav">
-      <a href="{{ url('/') }}">Home</a>
-      <a href="{{ url('/about') }}">About</a>
-      <a href="{{ route('products.index') }}">Products</a>
-      <a href="{{ url('/contact') }}">Contact</a>
-      <div class="IconNav" id="auth-buttons"></div>
-    </header>
-
-    <!-- category navigation for browsing products -->
-    <nav class="CategoryNav" aria-label="Product categories">
-      <a href="/products">All</a>
-      <a href="/category/rings">Rings</a>
-      <a href="/category/earrings">Earrings</a>
-      <a href="/category/bracelets">Bracelets</a>
-      <a href="/category/necklaces">Necklaces</a>
-      <a href="/category/watches">Watches</a>
-    </nav>
-
     <div class="PageContent">
       <header class="TopNav">
         <a class="logo-link" href="/" aria-label="Skyrose Atelier home"><img class="header-logo" src="{{ asset('images/logo Skyrose.jpg') }}" alt="Skyrose Atelier logo"></a>
@@ -44,15 +26,7 @@
         </div>
       </header>
 
-      <!-- category navigation for browsing products -->
-      <nav class="CategoryNav" aria-label="Product categories">
-        <a href="/products">All</a>
-        <a href="/category/rings">Rings</a>
-        <a href="/category/earrings">Earrings</a>
-        <a href="/category/bracelets">Bracelets</a>
-        <a href="/category/necklaces">Necklaces</a>
-        <a href="/category/watches">Watches</a>
-      </nav>
+      @include('partials.category-dropdown', ['active' => 'rings'])
 
       <!-- page heading + short description -->
       <section class="TitleSection">
