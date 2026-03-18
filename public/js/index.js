@@ -125,6 +125,21 @@ function getCsrfToken() {
   return meta ? meta.getAttribute('content') : '';
 }
 
+// Toast notification for cart actions
+function showCartToast(msg) {
+  var toast = document.getElementById('cart-toast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'cart-toast';
+    toast.style.cssText = 'position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#111;color:#fff;padding:12px 24px;border-radius:4px;font-size:14px;z-index:9999;opacity:0;transition:opacity 0.3s;pointer-events:none;';
+    document.body.appendChild(toast);
+  }
+  toast.textContent = msg;
+  toast.style.opacity = '1';
+  clearTimeout(toast._ct);
+  toast._ct = setTimeout(function() { toast.style.opacity = '0'; }, 2500);
+}
+
 // Quick add to cart function
 function addToCartQuick(event, productName, quantity) {
   event.preventDefault();
@@ -169,14 +184,14 @@ function addToCartQuick(event, productName, quantity) {
       }, 2000);
       const cartCount = document.getElementById('cart-count');
       if (cartCount && data.cartCount) cartCount.textContent = data.cartCount;
-      alert(productName + ' added to basket!');
+      showCartToast(productName + ' added to basket!');
     } else {
-      alert('Error: ' + (data.error || 'Failed to add to basket'));
+      showCartToast('Error: ' + (data.error || 'Failed to add to basket'));
     }
   })
   .catch(err => {
     console.error('Fetch error:', err);
-    alert('Error adding to basket: ' + err.message);
+    showCartToast('Error adding to basket: ' + err.message);
   });
 }
 
