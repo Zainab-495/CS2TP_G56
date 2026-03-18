@@ -664,6 +664,22 @@ body { display: flex; flex-direction: column; min-height: 100vh; }
 .AddToCartButton{ background:#d4af37; border:none; color:#fff; padding:10px 12px; border-radius:6px; cursor:pointer }
 .AddToCartButton[disabled]{ opacity:0.5; cursor:not-allowed }
 
+/* Wishlist heart button on product cards */
+.ProductCardActions { display: flex; gap: 8px; margin-top: 10px; }
+.ProductCardActions .AddToCartButton { flex: 1; }
+.WishlistBtn {
+    background: none;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 8px 10px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: all 0.2s;
+    color: #aaa;
+    line-height: 1;
+}
+.WishlistBtn:hover, .WishlistBtn.active { color: #e74c3c; border-color: #e74c3c; }
+
 /* Quantity selector for product cards */
 .QuantitySelector {
     display: flex;

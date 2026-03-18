@@ -118,6 +118,7 @@
 
     <div class="Toast" id="toast"></div>
 
+    <script src="{{ asset('js/wishlist.js') }}"></script>
     <script>
         const CSRF = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
         const productName = @json($product->name);
@@ -147,10 +148,47 @@
 
         function toggleWishlist() {
             const btn = document.getElementById('wishlistBtn');
-            const active = btn.classList.toggle('active');
-            btn.innerHTML = active ? '&#9829; Remove from Wishlist' : '&#9825; Add to Wishlist';
-            showToast(active ? productName + ' added to wishlist' : productName + ' removed from wishlist');
+            const wl = window.wishlist;
+            if (!wl) return;
+
+            const imgEl = document.querySelector('.ProductDetailImage img');
+            const imgSrc = imgEl ? imgEl.src : '';
+            const catEl  = document.querySelector('.ProductDetailCategory');
+            const cat    = catEl ? catEl.textContent.trim() : '';
+
+            if (wl.isInWishlist(productName)) {
+                wl.removeFromWishlist(productName);
+                btn.classList.remove('active');
+                btn.innerHTML = '&#9825; Add to Wishlist';
+                showToast(productName + ' removed from wishlist');
+            } else {
+                wl.addToWishlist({
+                    name:     productName,
+                    price:    '£' + productPrice.toFixed(2),
+                    image:    imgSrc,
+                    link:     window.location.pathname,
+                    category: cat
+                });
+                btn.classList.add('active');
+                btn.innerHTML = '&#9829; In Wishlist';
+                showToast(productName + ' added to wishlist');
+            }
         }
+
+        // Restore wishlist button state on page load
+        (function initDetailWishlistBtn() {
+            function check() {
+                if (window.wishlist && window.wishlist.isInWishlist(productName)) {
+                    var btn = document.getElementById('wishlistBtn');
+                    if (btn) { btn.classList.add('active'); btn.innerHTML = '&#9829; In Wishlist'; }
+                }
+            }
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', check);
+            } else {
+                check();
+            }
+        })();
 
         function showToast(msg) {
             const t = document.getElementById('toast');

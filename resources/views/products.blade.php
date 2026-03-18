@@ -745,31 +745,7 @@ if (document.getElementById('searchInput')) {
     });
     </script>
 
-    <script>
-    function toggleWishlist(event, btn) {
-        event.preventDefault();
-        event.stopPropagation();
-        btn.classList.toggle('active');
-        btn.innerHTML = btn.classList.contains('active') ? '&#9829;' : '&#9825;';
-        const productName = btn.closest('.ProductInfo').querySelector('.ProductTitle').textContent;
-        const msg = btn.classList.contains('active') ? `${productName} added to wishlist` : `${productName} removed from wishlist`;
-        showToast(msg);
-    }
-
-    function showToast(message) {
-        let toast = document.getElementById('wishlist-toast');
-        if (!toast) {
-            toast = document.createElement('div');
-            toast.id = 'wishlist-toast';
-            toast.style.cssText = 'position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#111;color:#fff;padding:12px 24px;border-radius:4px;font-size:14px;z-index:9999;transition:opacity 0.3s;';
-            document.body.appendChild(toast);
-        }
-        toast.textContent = message;
-        toast.style.opacity = '1';
-        clearTimeout(toast._timeout);
-        toast._timeout = setTimeout(() => { toast.style.opacity = '0'; }, 2500);
-    }
-    </script>
+    <script src="{{ asset('js/wishlist.js') }}"></script>
 
 </body>
 </html>

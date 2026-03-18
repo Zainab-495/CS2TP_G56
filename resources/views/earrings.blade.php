@@ -56,7 +56,10 @@
             <p class="ProductDescription">Lightweight, elegant earrings for everyday wear. Perfect complement to any outfit with subtle elegance.</p>
             <div class="ProductMeta"><span class="ProductPrice">Â£120</span></div>
             <div class="QuantitySelector"><label>Qty:</label><select id="qty-threadbare-earrings"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></div>
-            <button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Threadbare Earrings', 'qty-threadbare-earrings')">Add to Cart</button>
+            <div class="ProductCardActions">
+              <button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Threadbare Earrings', 'qty-threadbare-earrings')">Add to Cart</button>
+              <button type="button" class="WishlistBtn" onclick="toggleWishlist(event, this)" title="Add to wishlist">&#9825;</button>
+            </div>
           </div>
         </a>
 
@@ -70,7 +73,10 @@
             <p class="ProductDescription">A sparkling diamond earring that adds a touch of glamour to any look. Perfect complement to any outfit with subtle elegance.</p>
             <div class="ProductMeta"><span class="ProductPrice">Â£480</span></div>
             <div class="QuantitySelector"><label>Qty:</label><select id="qty-diamond-earrings"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></div>
-            <button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Diamond Earrings', 'qty-diamond-earrings')">Add to Cart</button>
+            <div class="ProductCardActions">
+              <button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Diamond Earrings', 'qty-diamond-earrings')">Add to Cart</button>
+              <button type="button" class="WishlistBtn" onclick="toggleWishlist(event, this)" title="Add to wishlist">&#9825;</button>
+            </div>
           </div>
         </a>
 
@@ -84,7 +90,10 @@
             <p class="ProductDescription">A sparkling gold earring that adds a touch of glamour to any look. Perfect complement to any outfit with subtle elegance.</p>
             <div class="ProductMeta"><span class="ProductPrice">Â£195</span></div>
             <div class="QuantitySelector"><label>Qty:</label><select id="qty-gold-hoop"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></div>
-            <button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Gold Hoop', 'qty-gold-hoop')">Add to Cart</button>
+            <div class="ProductCardActions">
+              <button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Gold Hoop', 'qty-gold-hoop')">Add to Cart</button>
+              <button type="button" class="WishlistBtn" onclick="toggleWishlist(event, this)" title="Add to wishlist">&#9825;</button>
+            </div>
           </div>
         </a>
 
@@ -98,7 +107,10 @@
             <p class="ProductDescription">Elegant pearl drop earrings that add a touch of sophistication to any outfit. Perfect complement to any outfit with subtle elegance.</p>
             <div class="ProductMeta"><span class="ProductPrice">Â£275</span></div>
             <div class="QuantitySelector"><label>Qty:</label><select id="qty-pearl-drop"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></div>
-            <button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Pearl Drop', 'qty-pearl-drop')">Add to Cart</button>
+            <div class="ProductCardActions">
+              <button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Pearl Drop', 'qty-pearl-drop')">Add to Cart</button>
+              <button type="button" class="WishlistBtn" onclick="toggleWishlist(event, this)" title="Add to wishlist">&#9825;</button>
+            </div>
           </div>
         </a>
 
@@ -112,7 +124,10 @@
             <p class="ProductDescription">A sparkling silver stud earring that adds a touch of glamour to any look. Perfect complement to any outfit with subtle elegance.</p>
             <div class="ProductMeta"><span class="ProductPrice">Â£145</span></div>
             <div class="QuantitySelector"><label>Qty:</label><select id="qty-silver-stud"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></div>
-            <button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Silver Stud', 'qty-silver-stud')">Add to Cart</button>
+            <div class="ProductCardActions">
+              <button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Silver Stud', 'qty-silver-stud')">Add to Cart</button>
+              <button type="button" class="WishlistBtn" onclick="toggleWishlist(event, this)" title="Add to wishlist">&#9825;</button>
+            </div>
           </div>
         </a>
       </main>
@@ -135,6 +150,7 @@
 <!-- updates footer year automatically -->
   <script>try{document.getElementById('year').textContent=new Date().getFullYear()}catch(e){};</script>
   <!-- main script -->
+  <script src="{{ asset('js/wishlist.js') }}" defer></script>
   <script src="{{ asset('js/index.js') }}" defer></script>
 </body>
 </html>

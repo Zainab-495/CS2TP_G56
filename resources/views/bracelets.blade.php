@@ -54,7 +54,10 @@
             <p class="ProductDescription">Handcrafted bracelet with romantic detailing. A statement piece celebrating love and craftsmanship.</p>
             <div class="ProductMeta"><span class="ProductPrice">Â£245</span></div>
             <div class="QuantitySelector"><label>Qty:</label><select id="qty-bleeding-heart-bracelet"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></div>
-            <button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Bleeding Heart Bracelet', 'qty-bleeding-heart-bracelet')">Add to Cart</button>
+            <div class="ProductCardActions">
+              <button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Bleeding Heart Bracelet', 'qty-bleeding-heart-bracelet')">Add to Cart</button>
+              <button type="button" class="WishlistBtn" onclick="toggleWishlist(event, this)" title="Add to wishlist">&#9825;</button>
+            </div>
           </div>
         </a>
 
@@ -68,7 +71,10 @@
             <p class="ProductDescription">Golden baddazzling heavy bangle bracelet perfect for weddings and special occasions. A statement piece celebrating love and craftsmanship.</p>
             <div class="ProductMeta"><span class="ProductPrice">Â£380</span></div>
             <div class="QuantitySelector"><label>Qty:</label><select id="qty-gold-bangle"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></div>
-            <button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Gold Bangle', 'qty-gold-bangle')">Add to Cart</button>
+            <div class="ProductCardActions">
+              <button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Gold Bangle', 'qty-gold-bangle')">Add to Cart</button>
+              <button type="button" class="WishlistBtn" onclick="toggleWishlist(event, this)" title="Add to wishlist">&#9825;</button>
+            </div>
           </div>
         </a>
 
@@ -82,7 +88,10 @@
             <p class="ProductDescription">An embezzeling factory made Cuban Bracelet full of luxury. A statement piece celebrating love and craftsmanship.</p>
             <div class="ProductMeta"><span class="ProductPrice">Â£520</span></div>
             <div class="QuantitySelector"><label>Qty:</label><select id="qty-cuban-bracelet"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></div>
-            <button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Cuban Bracelet', 'qty-cuban-bracelet')">Add to Cart</button>
+            <div class="ProductCardActions">
+              <button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Cuban Bracelet', 'qty-cuban-bracelet')">Add to Cart</button>
+              <button type="button" class="WishlistBtn" onclick="toggleWishlist(event, this)" title="Add to wishlist">&#9825;</button>
+            </div>
           </div>
         </a>
 
@@ -96,7 +105,10 @@
             <p class="ProductDescription">Handcrafted bracelet with romantic detailing. A statement piece celebrating love and craftsmanship.</p>
             <div class="ProductMeta"><span class="ProductPrice">Â£310</span></div>
             <div class="QuantitySelector"><label>Qty:</label><select id="qty-charm-bracelet"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></div>
-            <button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Charm Bracelet', 'qty-charm-bracelet')">Add to Cart</button>
+            <div class="ProductCardActions">
+              <button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Charm Bracelet', 'qty-charm-bracelet')">Add to Cart</button>
+              <button type="button" class="WishlistBtn" onclick="toggleWishlist(event, this)" title="Add to wishlist">&#9825;</button>
+            </div>
           </div>
         </a>
 
@@ -110,7 +122,10 @@
             <p class="ProductDescription">Handcrafted leather bracelet with a rugged yet refined look. A statement piece celebrating love and craftsmanship.</p>
             <div class="ProductMeta"><span class="ProductPrice">Â£175</span></div>
             <div class="QuantitySelector"><label>Qty:</label><select id="qty-leather-bracelet"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></div>
-            <button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Leather Bracelet', 'qty-leather-bracelet')">Add to Cart</button>
+            <div class="ProductCardActions">
+              <button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Leather Bracelet', 'qty-leather-bracelet')">Add to Cart</button>
+              <button type="button" class="WishlistBtn" onclick="toggleWishlist(event, this)" title="Add to wishlist">&#9825;</button>
+            </div>
           </div>
         </a>
       </main>
@@ -130,6 +145,7 @@
 <!--update footer year automatically-->
   <script>try{document.getElementById('year').textContent=new Date().getFullYear()}catch(e){};</script>
   <!--main javascipt file-->
+  <script src="{{ asset('js/wishlist.js') }}" defer></script>
   <script src="{{ asset('js/index.js') }}" defer></script>
 </body>
 </html>
