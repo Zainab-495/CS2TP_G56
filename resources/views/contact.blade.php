@@ -164,7 +164,7 @@
                     <div class="contact-info-icon"><img src="{{ asset('images/MailIcon.png') }}"></div>
                     <div class="contact-info-text">
                         <h3>Email</h3>
-                        <p>hello@SykroseAtelier.com</p>
+                        <p>hello@SkyroseAtelier.com</p>
                     </div>
                 </div>
                 <div class="contact-info-card">
