@@ -236,8 +236,42 @@ body { display: flex; flex-direction: column; min-height: 100vh; }
 }
 
 .TitleSection{
-    margin-top: 65px;
-    background-color: whitesmoke;
+    margin-top: 90px;
+    padding: 80px 24px 56px;
+    text-align: center;
+    background: radial-gradient(circle at 20% 20%, rgba(212,175,55,0.12), transparent 35%),
+                radial-gradient(circle at 80% 10%, rgba(0,0,0,0.10), transparent 40%),
+                #f7f5f1;
+    border-radius: 22px;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.06);
+}
+
+.TitleSection::after{
+    content: '';
+    position: absolute;
+    inset: 16px;
+    border: 1px solid rgba(17,17,17,0.06);
+    border-radius: 16px;
+    pointer-events: none;
+}
+
+.TitleEyebrow{
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: linear-gradient(120deg, rgba(212,175,55,0.22), rgba(17,17,17,0.08));
+    color: #111;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 12px;
+    font-weight: 700;
 }
 
 /* Homepage hero */
@@ -280,18 +314,150 @@ body { display: flex; flex-direction: column; min-height: 100vh; }
     .FeaturedGrid{ grid-template-columns: 1fr }
 }
 
+
 .MainTitle{
-    color: black;
-    font-size: 40px;
-    margin-bottom: 20px;
+    color: #111;
+    font-size: clamp(36px, 5vw, 54px);
+    margin: 16px 0 10px;
+    letter-spacing: 0.5px;
 }
 
 .TitleDescription{
-    line-height: 1.5;
+    line-height: 1.7;
     word-spacing: 1.5px;
-    color: rgb(56, 56, 56);
+    color: #3f3d36;
     margin: 0 auto;
+    max-width: 720px;
+    font-size: 17px;
 }
+
+/* Search + filter strip */
+.SearchSection{
+    max-width: 1100px;
+    margin: 28px auto 26px;
+    padding: 0 16px;
+}
+
+.SearchCard{
+    background: linear-gradient(135deg, rgba(255,255,255,0.32), rgba(255,255,255,0.12));
+    color: #111;
+    border-radius: 18px;
+    padding: 20px 22px 22px;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.55);
+    border: 1px solid rgba(255,255,255,0.55);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+.SearchEyebrow{
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 12px;
+    color: rgba(17,17,17,0.65);
+    margin: 0 0 10px;
+}
+
+.SearchBar{
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    align-items: center;
+    background: linear-gradient(145deg, rgba(255,255,255,0.42), rgba(255,255,255,0.16));
+    border: 1px solid rgba(255,255,255,0.7);
+    border-radius: 12px;
+    padding: 6px 10px;
+    gap: 6px;
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.6), 0 12px 30px rgba(0,0,0,0.08);
+}
+
+.SearchIcon{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.SearchIcon img{
+    width: 18px;
+    height: 18px;
+    display: block;
+    filter: brightness(0);
+}
+
+.SearchBar input{
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #0c0c0c;
+    font-size: 16px;
+    padding: 10px 6px;
+    width: 100%;
+}
+
+.SearchBar input::placeholder{ color: rgba(17,17,17,0.38); }
+
+.SearchBar:focus-within{
+    border-color: rgba(212,175,55,0.5);
+    box-shadow: 0 0 0 10px rgba(212,175,55,0.10), inset 0 1px 0 rgba(255,255,255,0.6);
+}
+
+/* Categories */
+.CategoryLinks{
+    max-width: 1100px;
+    margin: 14px auto 30px;
+    padding: 0 16px;
+}
+
+.SectionTitle{
+    font-size: 18px;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: #111;
+    margin: 0 0 14px 6px;
+}
+
+.CategoryGrid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+}
+
+.CategoryCard{
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 16px;
+    border-radius: 14px;
+    background: #fff;
+    border: 1px solid rgba(17,17,17,0.06);
+    color: #111;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    text-decoration: none;
+    box-shadow: 0 14px 32px rgba(0,0,0,0.07);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, color 0.18s ease;
+    overflow: hidden;
+}
+
+.CategoryCard::before{
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(212,175,55,0.18), rgba(17,17,17,0.08));
+    opacity: 0;
+    transition: opacity 0.18s ease;
+}
+
+.CategoryCard:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 18px 38px rgba(0,0,0,0.12);
+    color: #0d0b09;
+}
+
+.CategoryCard:hover::before{ opacity: 1; }
+
+.CategoryCard span,
+.CategoryCard{ position: relative; z-index: 1; }
 
 .ShopNowButton{
     background: black;
@@ -649,13 +815,51 @@ body { display: flex; flex-direction: column; min-height: 100vh; }
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    text-decoration: none;
+    position: relative;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
+.ProductCard::before{
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(212,175,55,0.12), rgba(17,17,17,0.06));
+    opacity: 0;
+    transition: opacity 0.18s ease;
+    pointer-events: none;
+}
+.ProductCard:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 18px 38px rgba(0,0,0,0.12);
+}
+.ProductCard:hover::before{ opacity: 1; }
+.ProductCard *{ position: relative; z-index: 1; }
 .ProductImageWrap{ position: relative; }
 .ProductImage{ width: 100%; height: 220px; object-fit: cover; display:block; }
 .ProductBadge{ position: absolute; left:10px; top:10px; background:#111; color:#fff; padding:6px 8px; border-radius:999px; font-size:12px; }
 .ProductInfo{ padding:16px; flex:1; display:flex; flex-direction:column; }
-.ProductTitle{ font-size:18px; margin:0 0 8px 0; color:#111; }
-.ProductDescription{ font-size:14px; color:#555; margin:0 0 12px 0; flex:1 }
+.ProductTitle{
+    font-size: 18px;
+    margin: 0 0 10px 0;
+    color: #111;
+    padding: 10px 12px;
+    border-radius: 12px;
+    background: linear-gradient(145deg, rgba(212,175,55,0.16), rgba(255,255,255,0.92));
+    border: 1px solid rgba(17,17,17,0.05);
+    box-shadow: 0 12px 26px rgba(0,0,0,0.08);
+}
+.ProductDescription{
+    font-size: 14px;
+    color: #444;
+    margin: 0 0 14px 0;
+    padding: 12px 12px;
+    background: #f8f6f1;
+    border: 1px solid rgba(17,17,17,0.05);
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.06);
+    line-height: 1.55;
+    flex: 1;
+}
 .ProductMeta{ display:flex; justify-content:space-between; align-items:center; margin-bottom:12px }
 .ProductPrice{ color:#b8941f; font-weight:700; font-size:18px }
 .StockText{ font-size:13px }
@@ -785,6 +989,3 @@ body { display: flex; flex-direction: column; min-height: 100vh; }
     .contact-image-card{ min-height: 200px; }
     .form-row.two-cols{ flex-direction: column; }
 }
-
-
-

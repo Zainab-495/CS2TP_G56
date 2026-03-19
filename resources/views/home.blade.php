@@ -160,7 +160,7 @@
                     <div class="HeroInner">
                         <div class="HeroCopy">
                             <h1 class="HeroTitle">Timeless Jewellery, Crafted to Last</h1>
-                            <p class="HeroSubtitle">Discover handcrafted pieces made with ethically sourced materials. From everyday elegance to statement heirlooms — find something to cherish.</p>
+                            <p class="HeroSubtitle">Discover handcrafted pieces made with ethically sourced materials. From everyday elegance to statement heirlooms find something to cherish.</p>
                             <div class="HeroCTA">
                                 <a href="/products" style="text-decoration:none;"><button class="BtnPrimary">Shop Collection</button></a>
                                 <a href="/about" style="text-decoration:none;"><button class="BtnGhost">Our Story</button></a>
