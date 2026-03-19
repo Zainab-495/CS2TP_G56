@@ -44,7 +44,7 @@
           <div class="ProductInfo">
             <h3 class="ProductTitle">Bleeding Heart Bracelet</h3>
             <p class="ProductDescription">Handcrafted bracelet with romantic detailing. A statement piece celebrating love and craftsmanship.</p>
-            <div class="ProductMeta"><span class="ProductPrice">Â£245</span></div>
+            <div class="ProductMeta"><span class="ProductPrice">£245</span></div>
             <div class="QuantitySelector"><label>Qty:</label><select id="qty-bleeding-heart-bracelet"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></div>
             <div class="ProductCardActions">
               <button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Bleeding Heart Bracelet', 'qty-bleeding-heart-bracelet')">Add to Cart</button>
@@ -61,7 +61,7 @@
           <div class="ProductInfo">
             <h3 class="ProductTitle">Gold Bangle Bracelet</h3>
             <p class="ProductDescription">Golden baddazzling heavy bangle bracelet perfect for weddings and special occasions. A statement piece celebrating love and craftsmanship.</p>
-            <div class="ProductMeta"><span class="ProductPrice">Â£380</span></div>
+            <div class="ProductMeta"><span class="ProductPrice">£380</span></div>
             <div class="QuantitySelector"><label>Qty:</label><select id="qty-gold-bangle"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></div>
             <div class="ProductCardActions">
               <button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Gold Bangle', 'qty-gold-bangle')">Add to Cart</button>
@@ -78,7 +78,7 @@
           <div class="ProductInfo">
             <h3 class="ProductTitle">Cuban Bracelet</h3>
             <p class="ProductDescription">An embezzeling factory made Cuban Bracelet full of luxury. A statement piece celebrating love and craftsmanship.</p>
-            <div class="ProductMeta"><span class="ProductPrice">Â£520</span></div>
+            <div class="ProductMeta"><span class="ProductPrice">£520</span></div>
             <div class="QuantitySelector"><label>Qty:</label><select id="qty-cuban-bracelet"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></div>
             <div class="ProductCardActions">
               <button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Cuban Bracelet', 'qty-cuban-bracelet')">Add to Cart</button>
@@ -95,7 +95,7 @@
           <div class="ProductInfo">
             <h3 class="ProductTitle">Charm Bracelet</h3>
             <p class="ProductDescription">Handcrafted bracelet with romantic detailing. A statement piece celebrating love and craftsmanship.</p>
-            <div class="ProductMeta"><span class="ProductPrice">Â£310</span></div>
+            <div class="ProductMeta"><span class="ProductPrice">£310</span></div>
             <div class="QuantitySelector"><label>Qty:</label><select id="qty-charm-bracelet"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></div>
             <div class="ProductCardActions">
               <button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Charm Bracelet', 'qty-charm-bracelet')">Add to Cart</button>
@@ -112,7 +112,7 @@
           <div class="ProductInfo">
             <h3 class="ProductTitle">Leather Bracelet</h3>
             <p class="ProductDescription">Handcrafted leather bracelet with a rugged yet refined look. A statement piece celebrating love and craftsmanship.</p>
-            <div class="ProductMeta"><span class="ProductPrice">Â£175</span></div>
+            <div class="ProductMeta"><span class="ProductPrice">£175</span></div>
             <div class="QuantitySelector"><label>Qty:</label><select id="qty-leather-bracelet"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></div>
             <div class="ProductCardActions">
               <button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Leather Bracelet', 'qty-leather-bracelet')">Add to Cart</button>
@@ -123,24 +123,10 @@
       </main>
 
     </div>
-<!--footer + social media icons-->
-    <footer class="footer">
-      <div class="FooterIconsContainer">
-        <img class="FooterIcons" src="{{ asset('images/FacebookIcon.png') }}" alt="Facebook">
-        <img class="FooterIcons" src="{{ asset('images/InstagramIcon.png') }}" alt="Instagram">
-        <img class="FooterIcons" src="{{ asset('images/YoutubeIcon.png') }}" alt="YouTube">
-      </div>
-      <!--copyright-->
-      <div class="FooterCopyright">&copy; <span id="year">2025</span> Skyrose Atelier</div>
-    </footer>
+    @include('partials.footer')
   </div>
-<!--update footer year automatically-->
-  <script>try{document.getElementById('year').textContent=new Date().getFullYear()}catch(e){};</script>
-  <!--main javascipt file-->
   <script src="{{ asset('js/wishlist.js') }}" defer></script>
-  <script src="{{ asset('js/index.js') }}" defer></script>
 </body>
 </html>
-
 
 

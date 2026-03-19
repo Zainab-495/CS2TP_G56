@@ -45,7 +45,7 @@
           <div class="ProductInfo">
             <h3 class="ProductTitle">Buta Ring</h3>
             <p class="ProductDescription">A beautifully detailed ring with traditional motifs. Handcrafted from ethically sourced materials with intricate detailing.</p>
-            <div class="ProductMeta"><span class="ProductPrice">Â£185</span></div>
+            <div class="ProductMeta"><span class="ProductPrice">£185</span></div>
             <div class="QuantitySelector"><label>Qty:</label><select id="qty-buta-ring"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></div>
             <div class="ProductCardActions">
               <button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Buta Ring', 'qty-buta-ring')">Add to Cart</button>
@@ -62,7 +62,7 @@
           <div class="ProductInfo">
             <h3 class="ProductTitle">Saphire Ring</h3>
             <p class="ProductDescription">A beautifully Sapphire blue ring with traditional motifs. Handcrafted from ethically sourced materials with intricate detailing.</p>
-            <div class="ProductMeta"><span class="ProductPrice">Â£420</span></div>
+            <div class="ProductMeta"><span class="ProductPrice">£420</span></div>
             <div class="QuantitySelector"><label>Qty:</label><select id="qty-saphire-ring"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></div>
             <div class="ProductCardActions">
               <button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Saphire Ring', 'qty-saphire-ring')">Add to Cart</button>
@@ -79,7 +79,7 @@
           <div class="ProductInfo">
             <h3 class="ProductTitle">Rose Gold Ring</h3>
             <p class="ProductDescription">A beautifully Rose gold goldern detailed ring with traditional motifs. Handcrafted from ethically sourced materials with intricate detailing.</p>
-            <div class="ProductMeta"><span class="ProductPrice">Â£385</span></div>
+            <div class="ProductMeta"><span class="ProductPrice">£385</span></div>
             <div class="QuantitySelector"><label>Qty:</label><select id="qty-rose-gold-ring"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></div>
             <div class="ProductCardActions">
               <button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Rose Gold Ring', 'qty-rose-gold-ring')">Add to Cart</button>
@@ -96,7 +96,7 @@
           <div class="ProductInfo">
             <h3 class="ProductTitle">Vintage Ring</h3>
             <p class="ProductDescription">A vintage-inspired ring with timeless elegance. Handcrafted from ethically sourced materials with intricate detailing.</p>
-            <div class="ProductMeta"><span class="ProductPrice">Â£650</span></div>
+            <div class="ProductMeta"><span class="ProductPrice">£650</span></div>
             <div class="QuantitySelector"><label>Qty:</label><select id="qty-vintage-ring"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></div>
             <div class="ProductCardActions">
               <button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Vintage Ring', 'qty-vintage-ring')">Add to Cart</button>
@@ -113,7 +113,7 @@
           <div class="ProductInfo">
             <h3 class="ProductTitle">Diamond Ring</h3>
             <p class="ProductDescription">A dazzling diamond ring that captures the essence of luxury and elegance. Handcrafted from ethically sourced materials with intricate detailing.</p>
-            <div class="ProductMeta"><span class="ProductPrice">Â£550</span></div>
+            <div class="ProductMeta"><span class="ProductPrice">£550</span></div>
             <div class="QuantitySelector"><label>Qty:</label><select id="qty-diamond-ring"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></div>
             <div class="ProductCardActions">
               <button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Diamond Ring', 'qty-diamond-ring')">Add to Cart</button>
@@ -125,26 +125,11 @@
 
     </div>
 
-    <!-- footer section -->
-    <footer id="site-footer" class="footer">
-      <div class="FooterIconsContainer">
-        <img class="FooterIcons" src="{{ asset('images/FacebookIcon.png') }}" alt="Facebook">
-        <img class="FooterIcons" src="{{ asset('images/InstagramIcon.png') }}" alt="Instagram">
-        <img class="FooterIcons" src="{{ asset('images/YoutubeIcon.png') }}" alt="YouTube">
-      </div>
-      <!-- autoâ€“updating copyright -->
-      <div class="FooterCopyright">&copy; <span id="year">2025</span> Skyrose Atelier</div>
-    </footer>
+    @include('partials.footer')
   </div>
 
-  <!-- automatically update the year -->
-  <script>try{document.getElementById('year').textContent=new Date().getFullYear()}catch(e){};</script>
-  
-  <!-- main site script -->
   <script src="{{ asset('js/wishlist.js') }}" defer></script>
-  <script src="{{ asset('js/index.js') }}" defer></script>
 </body>
 </html>
-
 
 
