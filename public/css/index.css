@@ -12,6 +12,39 @@ body { display: flex; flex-direction: column; min-height: 100vh; }
 .page-wrapper { display: flex; flex-direction: column; flex: 1; }
 .PageContent { flex: 1; }
 
+.ProductDetailPage .BackLink,
+.BackLink{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 30px;
+    padding: 10px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #111;
+    text-decoration: none;
+    border: 1px solid rgba(17,17,17,0.12);
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(212,175,55,0.16), rgba(255,255,255,0.95));
+    box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+}
+.BackLink:hover{
+    transform: translateY(-2px);
+    background: #111;
+    color: #fff;
+    border-color: #111;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+}
+.BackLink:focus-visible{
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(212,175,55,0.35), 0 12px 28px rgba(0,0,0,0.18);
+}
+.BackLink svg{
+    width: 14px;
+    height: 14px;
+}
+
 
 .TopNav{
     display: flex;

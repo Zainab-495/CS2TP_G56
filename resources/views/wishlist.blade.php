@@ -340,11 +340,6 @@
                     '<div class="WishlistCardPrice">' + safePrice + '</div>' +
 
                     '<div class="WishlistCardActions">' +
-/* Add to cart button */
-'<button class="WishlistAddToCartBtn" onclick="addToCartFromWishlist(' +
-escapeHtml(JSON.stringify(item.name)) + ',' +
-escapeHtml(JSON.stringify(item.price)) + ')">Add to Cart</button>' +
-
                         /* Add to cart button (uses data-attrs + delegated handler) */
                         '<button class="WishlistAddToCartBtn" ' +
                             'data-action="add" ' +
@@ -368,7 +363,6 @@ escapeHtml(JSON.stringify(item.price)) + ')">Add to Cart</button>' +
     }
 
     /* Make functions accessible globally */
-    window.addToCartFromWishlist = addToCart;
     window.removeFromWishlistPage = removeItem;
 
     /* Handle clicks via event delegation so data-attrs stay safe and re-renders still work */

@@ -44,9 +44,9 @@
                         <span aria-hidden="true">•</span>
                         <a href="/wishlist">Wishlist</a>
                         <span aria-hidden="true">•</span>
-                        <a href="/bracelets">Bracelets</a>
+                        <a href="/products">Products</a>
                         <span aria-hidden="true">•</span>
-                        <a href="/home">Home</a>
+                        <a href="/">Home</a>
                     </li>
                 </ul>
             </div>

@@ -45,8 +45,33 @@
             font-weight: 600; cursor: pointer; transition: all 0.3s;
         }
         .WishlistBtnDetail:hover { background: #fff0f0; border-color: #e74c3c; color: #e74c3c; }
-        .BackLink { display: inline-block; margin-bottom: 30px; font-size: 14px; color: #666; text-decoration: none; }
-        .BackLink:hover { color: #111; }
+        .ProductDetailPage .BackLink {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 30px;
+            padding: 10px 14px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #111;
+            text-decoration: none;
+            border: 1px solid rgba(17, 17, 17, 0.12);
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.16), rgba(255, 255, 255, 0.95));
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+            transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+        }
+        .ProductDetailPage .BackLink:hover {
+            transform: translateY(-2px);
+            background: #111;
+            color: #fff;
+            border-color: #111;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+        }
+        .ProductDetailPage .BackLink:focus-visible {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.35), 0 12px 28px rgba(0, 0, 0, 0.18);
+        }
         .Toast {
             position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
             background: #111; color: #fff; padding: 12px 24px; border-radius: 4px;
@@ -204,4 +229,3 @@
     </script>
 </body>
 </html>
-
