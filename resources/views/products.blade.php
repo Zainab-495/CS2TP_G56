@@ -73,88 +73,42 @@
 <!-- Category links -->
 <section class="CategoryLinks" aria-label="Shop by category">
     @include('partials.category-dropdown', ['active' => ''])
+
 </section>
+
 
 <!-- Products Grid (uses CSS in css/index.css) -->
 <main class="ProductsGrid" id="productsGrid" aria-label="Product list">
- <!-- product card 1 -->
-    <a class="ProductCard" href="/products?product=buta-ring" data-name="Buta Ring" data-category="Ring">
+    <!-- Dynamically generated product cards from database -->
+    @foreach($products as $product)
+    <a class="ProductCard" href="/products/{{ $product->id }}" data-name="{{ $product->name }}" data-category="{{ $product->category }}">
         <div class="ProductImageWrap">
-            <img class="ProductImage" src="{{ asset('images/ButaRing.png') }}" alt="Buta Ring">
-            <span class="ProductBadge">Ring</span>
+            <img class="ProductImage" src="{{ asset($product->image_url) }}" alt="{{ $product->name }}">
+            <span class="ProductBadge">{{ $product->category }}</span>
         </div>
         <div class="ProductInfo">
-            <h3 class="ProductTitle">Buta Ring</h3>
-            <!-- short description -->
-            <p class="ProductDescription">A beautifully detailed ring with traditional motifs. Handcrafted from ethically sourced materials with intricate detailing.</p>
-            <!-- stock + price info -->
+            <h3 class="ProductTitle">{{ $product->name }}</h3>
+            <p class="ProductDescription">{{ $product->description }}</p>
             <div class="ProductMeta">
-                <span class="StockText in-stock">In Stock</span>
-                <span class="ProductPrice">£185</span>
+                <span class="StockText {{ $product->stock_quantity > 0 ? 'in-stock' : 'out-of-stock' }}">
+                    {{ $product->stock_quantity > 0 ? 'In Stock' : 'Out of Stock' }}
+                </span>
+                <span class="ProductPrice">£{{ number_format($product->price, 0) }}</span>
             </div>
-            <div class="QuantitySelector"><label>Qty:</label><select id="qty-buta-ring"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></div>
-             <!-- quick add-to-cart button -->
-            <div class="ProductCardActions"><button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Buta Ring', 'qty-buta-ring')">Add to Cart</button><button type="button" class="WishlistBtn" onclick="toggleWishlist(event, this)" title="Add to wishlist">&#9825;</button></div>
+            <div class="QuantitySelector"><label>Qty:</label>
+                <select id="qty-{{ $product->id }}">
+                    @for($i = 1; $i <= min(10, max(1, $product->stock_quantity)); $i++)
+                        <option value="{{ $i }}">{{ $i }}</option>
+                    @endfor
+                </select>
+            </div>
+            <div class="ProductCardActions">
+                <button class="AddToCartButton" onclick="addToCartWithQuantity(event, '{{ $product->name }}', 'qty-{{ $product->id }}')">Add to Cart</button>
+                <button type="button" class="WishlistBtn" onclick="toggleWishlist(event, this)" title="Add to wishlist">&#9825;</button>
+            </div>
         </div>
     </a>
-<!-- product card 2 -->
-<a class="ProductCard" href="/products?product=saphire-ring" data-name="Saphire Ring" data-category="Ring">
-        <div class="ProductImageWrap">
-            <img class="ProductImage" src="{{ asset('images/saphire-ring.jpg') }}" alt="Saphire Ring">
-            <span class="ProductBadge">Ring</span>
-        </div>
-        <div class="ProductInfo">
-            <h3 class="ProductTitle">Saphire Ring</h3>
-            <p class="ProductDescription">A beautifully Sapphire blue ring with traditional motifs. Handcrafted from ethically sourced materials with intricate detailing.</p>
-            <div class="ProductMeta">
-                <span class="StockText in-stock">In Stock</span>
-                <span class="ProductPrice">£420</span>
-            </div>
-            <div class="QuantitySelector"><label>Qty:</label><select id="qty-saphire-ring"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></div>
-            <div class="ProductCardActions"><button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Saphire Ring', 'qty-saphire-ring')">Add to Cart</button><button type="button" class="WishlistBtn" onclick="toggleWishlist(event, this)" title="Add to wishlist">&#9825;</button></div>
-        </div>
-    </a>
-
-    <a class="ProductCard" href="/products?product=rose-gold-ring" data-name="Rose Gold Ring" data-category="Ring">
-        <div class="ProductImageWrap">
-            <img class="ProductImage" src="{{ asset('images/rose-gold.jpg') }}" alt="Rose Gold Ring">
-            <span class="ProductBadge">Ring</span>
-        </div>
-        <div class="ProductInfo">
-            <h3 class="ProductTitle">Rose Gold Ring</h3>
-            <p class="ProductDescription">A beautifully Rose gold goldern detailed ring with traditional motifs. Handcrafted from ethically sourced materials with intricate detailing.</p>
-            <div class="ProductMeta">
-                <span class="StockText in-stock">In Stock</span>
-                <span class="ProductPrice">£385</span>
-            </div>
-            <div class="QuantitySelector"><label>Qty:</label><select id="qty-rose-gold-ring"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></div>
-            <div class="ProductCardActions"><button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Rose Gold Ring', 'qty-rose-gold-ring')">Add to Cart</button><button type="button" class="WishlistBtn" onclick="toggleWishlist(event, this)" title="Add to wishlist">&#9825;</button></div>
-        </div>
-    </a>
-
-    <a class="ProductCard" href="/products?product=vintage-ring" data-name="Vintage Ring" data-category="Ring">
-        <div class="ProductImageWrap">
-            <img class="ProductImage" src="{{ asset('images/vintage-ring.jpg') }}" alt="Vintage Ring">
-            <span class="ProductBadge">Ring</span>
-        </div>
-        <div class="ProductInfo">
-            <h3 class="ProductTitle">Vintage Ring</h3>
-            <p class="ProductDescription">A vintage-inspired ring with timeless elegance. Handcrafted from ethically sourced materials with intricate detailing.</p>
-            <div class="ProductMeta">
-                <span class="StockText in-stock">In Stock</span>
-                <span class="ProductPrice">£650</span>
-            </div>
-            <div class="QuantitySelector"><label>Qty:</label><select id="qty-vintage-ring"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></div>
-            <div class="ProductCardActions"><button class="AddToCartButton" onclick="addToCartWithQuantity(event, 'Vintage Ring', 'qty-vintage-ring')">Add to Cart</button><button type="button" class="WishlistBtn" onclick="toggleWishlist(event, this)" title="Add to wishlist">&#9825;</button></div>
-        </div>
-    </a>
-
-    <a class="ProductCard" href="/products?product=diamond-ring" data-name="diamond Ring" data-category="Ring">
-        <div class="ProductImageWrap">
-            <img class="ProductImage" src="{{ asset('images/diamond-ring.jpg') }}" alt="Diamond Ring">
-            <span class="ProductBadge">Ring</span>
-        </div>
-        <div class="ProductInfo">
+    @endforeach
             <h3 class="ProductTitle">Diamond Ring</h3>
             <p class="ProductDescription">A dazzling diamond ring that captures the essence of luxury and elegance. Handcrafted from ethically sourced materials with intricate detailing.</p>
             <div class="ProductMeta">

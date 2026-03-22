@@ -103,8 +103,12 @@ class OrderController extends Controller
     }
 
     public function myOrders()
-{
-    $orders = \App\Models\Order::where('user_id', auth()->id())->get();
-    return view('my_orders', compact('orders'));
-}
+    {
+        $orders = \App\Models\Order::with('items.product', 'user')
+            ->where('user_id', auth()->id())
+            ->orderBy('created_at', 'desc')
+            ->get();
+        $isAdmin = false;
+        return view('orders', ['orders' => $orders, 'isAdmin' => $isAdmin]);
+    }
 }

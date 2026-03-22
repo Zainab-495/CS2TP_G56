@@ -1,4 +1,7 @@
+
 <?php
+// Reviews
+Route::post('/products/{product}/reviews', [App\Http\Controllers\ReviewController::class, 'store'])->name('reviews.store');
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
@@ -42,7 +45,14 @@ Route::get('/category/watches',   fn() => view('watches'))->name('category.watch
 | Products
 |-----------------------------------------------------------------------
 */
-Route::get('/products', fn() => view('products'))->name('products.index');
+// Redirect old /products?product=slug URLs to /products, and always use controller for /products
+Route::get('/products', function () {
+    if (request()->has('product')) {
+        return redirect('/products');
+    }
+    // Forward to controller for product listing
+    return app(\App\Http\Controllers\ProductController::class)->index();
+})->name('products.index');
 Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
 
 /*

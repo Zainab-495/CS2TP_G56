@@ -27,8 +27,6 @@
         </a>
         <div id="auth-buttons">
             @auth
-                <a href="{{ route('profile.edit') }}" aria-label="My Profile"><img src="{{ asset('images/ProfileIcon.png') }}" alt="Profile"></a>
-
                 {{-- DEBUG: is_admin = {{ var_export(auth()->user()->is_admin, true) }} --}}
                 @if(auth()->user()->is_admin == 1)
                     <a href="{{ route('admin.orders') }}" aria-label="Customer Orders" class="NavAdminOrders" title="Customer Orders">
