@@ -1,0 +1,25 @@
+name,description,price,category,material,image_url,stock_quantity
+Buta Ring,"A beautifully detailed ring with traditional motifs. Handcrafted from ethically sourced materials with intricate detailing.",185,Ring,,images/buta-ring.jpg,1000
+Saphire Ring,"A beautifully Sapphire blue ring with traditional motifs. Handcrafted from ethically sourced materials with intricate detailing.",420,Ring,,images/saphire-ring.jpg,1000
+Rose Gold Ring,"A beautifully Rose gold golden detailed ring with traditional motifs. Handcrafted from ethically sourced materials with intricate detailing.",385,Ring,,images/rose-gold-ring.jpg,1000
+Vintage Ring,"A vintage-inspired ring with timeless elegance. Handcrafted from ethically sourced materials with intricate detailing.",650,Ring,,images/vintage-ring.jpg,1000
+Diamond Ring,"A dazzling diamond ring that captures the essence of luxury and elegance. Handcrafted from ethically sourced materials with intricate detailing.",550,Ring,,images/diamond-ring.jpg,1000
+Threadbare Earrings,"Lightweight, elegant earrings for everyday wear. Perfect complement to any outfit with subtle elegance.",120,Earrings,,images/threadbare-earrings.jpg,1000
+Diamond chandelier Earring,"A sparkling diamond earring that adds a touch of glamour to any look. Perfect complement to any outfit with subtle elegance.",480,Earrings,,images/diamond-chandelier-earring.jpg,1000
+Gold Hoop Earring,"A sparkling gold earring that adds a touch of glamour to any look. Perfect complement to any outfit with subtle elegance.",195,Earrings,,images/gold-hoop-earring.jpg,1000
+Pearl Drop Earring,"Elegant pearl drop earrings that add a touch of sophistication to any outfit. Perfect complement to any outfit with subtle elegance.",275,Earrings,,images/pearl-drop-earring.jpg,1000
+Silver Stud Earring,"A sparkling silver stud earring that adds a touch of glamour to any look. Perfect complement to any outfit with subtle elegance.",145,Earrings,,images/silver-stud-earring.jpg,1000
+Bleeding Heart Bracelet,"Handcrafted bracelet with romantic detailing. A statement piece celebrating love and craftsmanship.",245,Bracelet,,images/bleeding-heart-bracelet.jpg,1000
+Gold Bangle Bracelet,"Golden baddazzling heavy bangle bracelet perfect for weddings and special occasions. A statement piece celebrating love and craftsmanship.",380,Bracelet,,images/gold-bangle-bracelet.jpg,1000
+Cuban Bracelet,"An embezzling factory made Cuban Bracelet full of luxury. A statement piece celebrating love and craftsmanship.",520,Bracelet,,images/cuban-bracelet.jpg,1000
+Charm Bracelet,"Handcrafted bracelet with romantic detailing. A statement piece celebrating love and craftsmanship.",310,Bracelet,,images/charm-bracelet.jpg,1000
+Leather Bracelet,"Handcrafted leather bracelet with a rugged yet refined look. A statement piece celebrating love and craftsmanship.",175,Bracelet,,images/leather-bracelet.jpg,1000
+Signature Necklace,"Statement necklace made by skilled artisans. Designed to elevate any occasion with timeless elegance.",380,Necklace,,images/signature-necklace.jpg,1000
+Diamond Choker Necklace,"Statement necklace made by skilled artisans. Designed to elevate any occasion with timeless elegance.",720,Necklace,,images/diamond-choker-necklace.jpg,1000
+Gold Necklace,"Statement necklace made by skilled artisans. Designed to elevate any occasion with timeless elegance.",540,Necklace,,images/gold-necklace.jpg,1000
+Layered Necklace,"Statement necklace made by skilled artisans. Designed to elevate any occasion with timeless elegance.",340,Necklace,,images/layered-necklace.jpg,1000
+Gold Watch,"A timeless gold factory watch inspired by classical forms. Precision craftsmanship meets elegant design.",650,Watch,,images/gold-watch.jpg,1000
+Sport Watch,"A timeless watch inspired by classical forms. Precision craftsmanship meets elegant design.",290,Watch,,images/sport-watch.jpg,1000
+Silver Watch,"A timeless factory silver watch inspired by classical forms. Precision craftsmanship meets elegant design.",410,Watch,,images/silver-watch.jpg,1000
+Classic Leather Watch,"A timeless classic leather watch inspired by classical forms. Precision craftsmanship meets elegant design.",350,Watch,,images/classic-leather-watch.jpg,1000
+Luxury Watch,"A timeless watch inspired by classical forms. Precision craftsmanship meets elegant design.",850,Watch,,images/luxury-watch.jpg,1000
