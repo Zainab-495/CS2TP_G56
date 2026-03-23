@@ -48,7 +48,8 @@ class AdminController extends Controller
         // Get products that are out of stock or below threshold
         $lowStockProducts = Product::whereColumn('stock_quantity', '<=', 'stock_threshold')->get();
 
-        return view('admin.dashboard', compact('totalOrders', 'totalProducts', 'totalUsers', 'recentOrders', 'lowStockProducts'));
+        $recentRefundRequests = \App\Models\RefundRequest::with('order', 'user')->orderBy('created_at', 'desc')->limit(10)->get();
+        return view('admin.dashboard', compact('totalOrders', 'totalProducts', 'totalUsers', 'recentOrders', 'lowStockProducts', 'recentRefundRequests'));
     }
 
     public function orders(Request $request)

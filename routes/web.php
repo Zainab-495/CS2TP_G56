@@ -126,6 +126,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/orders/{id}',          [OrderController::class, 'show'])->name('orders.show');
     Route::post('/orders/{id}/cancel',  [OrderController::class, 'cancel'])->name('orders.cancel');
     Route::post('/orders/{id}/refund',  [OrderController::class, 'refund'])->name('orders.refund');
+    Route::post('/orders/{id}/return',  [OrderController::class, 'requestReturn'])->name('orders.return');
     Route::get('/my-orders',            [OrderController::class, 'myOrders'])->name('orders.my');
 });
 

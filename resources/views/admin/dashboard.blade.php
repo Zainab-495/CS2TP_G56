@@ -107,6 +107,32 @@
                         @endforelse
                     </tbody>
                 </table>
+
+                <div class="section-title">Recent Refund/Return Requests</div>
+                <table class="orders-table">
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Order ID</th>
+                            <th>Customer</th>
+                            <th>Status</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @forelse($recentRefundRequests as $request)
+                        <tr>
+                            <td>{{ ucfirst($request->type) }}</td>
+                            <td>#{{ $request->order_id }}</td>
+                            <td>{{ $request->user->name ?? 'Unknown' }}</td>
+                            <td><span class="status-badge status-{{ $request->status }}">{{ ucfirst($request->status) }}</span></td>
+                            <td>{{ $request->created_at->format('d M Y H:i') }}</td>
+                        </tr>
+                        @empty
+                        <tr><td colspan="5" style="text-align:center;color:#999;">No refund or return requests yet.</td></tr>
+                        @endforelse
+                    </tbody>
+                </table>
             </div>
         </div>
 

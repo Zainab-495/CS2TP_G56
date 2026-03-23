@@ -111,7 +111,14 @@
                                     <td style="font-size:13px;color:#888;">{{ $order->user->email ?? '—' }}</td>
                                     <td style="text-align:center;">{{ $order->items->count() }}</td>
                                     <td style="text-align:right;font-weight:700;">&pound;{{ number_format($order->total_amount, 2) }}</td>
-                                    <td><span class="status-badge status-{{ $order->status }}">{{ ucfirst($order->status) }}</span></td>
+                                    <td>
+                                        <span class="status-badge status-{{ $order->status }}">
+                                            {{ ucfirst($order->status) }}
+                                        </span>
+                                        @if($order->status === 'returned')
+                                            <span style="margin-left:8px; padding:4px 12px; border-radius:20px; background:#ffb3b3; color:#a10000; font-size:12px; font-weight:700;">Return Requested</span>
+                                        @endif
+                                    </td>
                                     <td>
                                         <form method="POST"
                                               action="{{ route('admin.orders.updateStatus', $order->id) }}"

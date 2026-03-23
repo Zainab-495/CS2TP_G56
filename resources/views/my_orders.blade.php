@@ -35,6 +35,11 @@
                                 <tr>
                                     <td style="font-weight:700;">#{{ $order->id }}</td>
                                     <td>{{ $order->created_at->format('d M Y') }}</td>
+                                    <td style="text-align:center;">
+                                        @foreach($order->items as $item)
+                                            {{ $item->product->name ?? 'Product' }}<br>
+                                        @endforeach
+                                    </td>
                                     <td style="text-align:center;">{{ $order->items->count() }}</td>
                                     <td style="text-align:right;" class="OrderAmount">&pound;{{ number_format($order->total_amount, 2) }}</td>
                                     <td style="text-align:center;">
@@ -42,8 +47,10 @@
                                     </td>
                                     <td style="text-align:center; white-space:nowrap;">
                                         <a href="{{ route('orders.show', $order->id) }}" class="ActionBtn view">View</a>
-                                        @if($order->status === 'pending' || $order->status === 'processing')
-                                            <button onclick="cancelOrder({{ $order->id }})" class="ActionBtn cancel">Cancel</button>
+                                        @if($order->status === 'completed')
+                                            <button onclick="requestReturn({{ $order->id }}, this)" class="ActionBtn return" style="background:#ffe5b4;color:#b77b2b;">Return</button>
+                                        @elseif($order->status === 'refunded' || $order->status === 'returned' || $order->status === 'cancelled')
+                                            <button class="ActionBtn return" style="background:#eee;color:#aaa;cursor:not-allowed;" disabled>Return</button>
                                         @endif
                                     </td>
                                 </tr>
@@ -76,6 +83,27 @@
                 else showToast('Error: ' + (data.error || 'Could not cancel.'));
             })
             .catch(() => showToast('An error occurred.'));
+        }
+        function requestReturn(orderId, btn) {
+            if (!confirm('Request a return for this order?')) return;
+            btn.disabled = true;
+            fetch(`/orders/${orderId}/return`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content }
+            })
+            .then(r => r.json())
+            .then(data => {
+                if (data.success) {
+                    showToast('Return requested.');
+                    btn.textContent = 'Return Requested';
+                    btn.style.background = '#eee';
+                    btn.style.color = '#aaa';
+                } else {
+                    showToast('Error: ' + (data.error || 'Could not request return.'));
+                    btn.disabled = false;
+                }
+            })
+            .catch(() => { showToast('An error occurred.'); btn.disabled = false; });
         }
     </script>
 </body>
