@@ -119,6 +119,21 @@
                         @if($order->status === 'pending' || $order->status === 'processing')
                             <button onclick="cancelOrder({{ $order->id }})" class="ActionBtn cancel">Cancel Order</button>
                         @endif
+
+                    
+        @if(true)
+            <button onclick="requestReturn({{ $order->id }})" class="ActionBtn return">
+                Request Return
+            </button>
+        @endif
+
+
+
+
+
+
+
+
                         <a href="{{ route('products.index') }}" class="ActionBtn shop">Continue Shopping</a>
                     </div>
                 </div>
@@ -148,6 +163,34 @@
             })
             .catch(() => showToast('An error occurred.'));
         }
+
+        function requestReturn(orderId) {
+    if (!confirm('Request a return for this order?')) return;
+
+    showToast('Submitting return request...');
+
+    setTimeout(() => {
+        showToast('Return request sent!');
+    }, 1000);
+
+    console.log('Return requested for order:', orderId);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </script>
 </body>
 </html>

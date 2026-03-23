@@ -52,12 +52,19 @@
                                         <span class="StatusBadge {{ $order->status }}">{{ ucfirst($order->status) }}</span>
                                     </td>
                                     <td style="text-align:center; white-space:nowrap;">
-                                        <a href="{{ route('orders.show', $order->id) }}" class="ActionBtn view">View</a>
-                                        @if($order->status === 'pending' || $order->status === 'processing')
-                                            <button onclick="cancelOrder({{ $order->id }})" class="ActionBtn cancel">Cancel</button>
-                                        @endif
-                                    </td>
-                                </tr>
+    <a href="{{ route('orders.show', $order->id) }}" class="ActionBtn view">View</a>
+
+    {{-- Cancel button for pending orders --}}
+    @if($order->status === 'pending' || $order->status === 'processing')
+        <button onclick="cancelOrder({{ $order->id }})" class="ActionBtn cancel">Cancel</button>
+    @endif
+
+    {{-- Return button for delivered orders --}}
+    @if(true)
+        <button onclick="requestReturn({{ $order->id }})" class="ActionBtn return">Return</button>
+    @endif
+</td>
+                                </tr> 
                                 @endforeach
                             </tbody>
                         </table>
@@ -88,6 +95,27 @@
             })
             .catch(() => showToast('An error occurred.'));
         }
+
+       function requestReturn(orderId) {
+    if (!confirm('Request a return for this order?')) return;
+
+    showToast('Submitting return request...');
+
+    setTimeout(() => {
+        showToast('Return request sent!');
+    }, 1000);
+
+    console.log('Return requested for order:', orderId);
+}
+
+
+
+
+
+
+
+
+
     </script>
 </body>
 </html>
